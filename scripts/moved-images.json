@@ -1,0 +1,62 @@
+[
+  {
+    "src": "/workspaces/volubiks-jewelries/Screenshot_20251225-175416.jpg",
+    "dest": "/workspaces/volubiks-jewelries/public/images/Screenshot_20251225-175416.jpg",
+    "oldBasename": "Screenshot_20251225-175416.jpg",
+    "newBasename": "Screenshot_20251225-175416.jpg"
+  },
+  {
+    "src": "/workspaces/volubiks-jewelries/data/imports/2025-12-26T11-00-08-905Z/images//images/IMG-2.jpg",
+    "dest": "/workspaces/volubiks-jewelries/public/images/IMG-2.jpg",
+    "oldBasename": "/images/IMG-2.jpg",
+    "newBasename": "IMG-2.jpg"
+  },
+  {
+    "src": "/workspaces/volubiks-jewelries/data/imports/2025-12-26T11-03-08-974Z/images//images/IMG-2.jpg",
+    "dest": "/workspaces/volubiks-jewelries/public/images/IMG-3.jpg",
+    "oldBasename": "/images/IMG-2.jpg",
+    "newBasename": "IMG-3.jpg"
+  },
+  {
+    "src": "/workspaces/volubiks-jewelries/data/imports/2025-12-26T12-13-00-524Z/images//images/4-2.jpg",
+    "dest": "/workspaces/volubiks-jewelries/public/images/4-2.jpg",
+    "oldBasename": "/images/4-2.jpg",
+    "newBasename": "4-2.jpg"
+  },
+  {
+    "src": "/workspaces/volubiks-jewelries/data/imports/2025-12-26T12-14-21-487Z/images/4(1)-1.jpg",
+    "dest": "/workspaces/volubiks-jewelries/public/images/4(1)-1.jpg",
+    "oldBasename": "4(1).jpg",
+    "newBasename": "4(1)-1.jpg"
+  },
+  {
+    "src": "/workspaces/volubiks-jewelries/data/imports/2025-12-26T12-14-21-487Z/images//images/4-2.jpg",
+    "dest": "/workspaces/volubiks-jewelries/public/images/4-3.jpg",
+    "oldBasename": "/images/4-2.jpg",
+    "newBasename": "4-3.jpg"
+  },
+  {
+    "src": "/workspaces/volubiks-jewelries/golden_green_chain_1.jpg",
+    "dest": "/workspaces/volubiks-jewelries/public/images/golden_green_chain_1.jpg",
+    "oldBasename": "golden_green_chain_1.jpg",
+    "newBasename": "golden_green_chain_1.jpg"
+  },
+  {
+    "src": "/workspaces/volubiks-jewelries/golden_green_chain_2.jpg",
+    "dest": "/workspaces/volubiks-jewelries/public/images/golden_green_chain_2.jpg",
+    "oldBasename": "golden_green_chain_2.jpg",
+    "newBasename": "golden_green_chain_2.jpg"
+  },
+  {
+    "src": "/workspaces/volubiks-jewelries/golden_green_chain_3.jpg",
+    "dest": "/workspaces/volubiks-jewelries/public/images/golden_green_chain_3.jpg",
+    "oldBasename": "golden_green_chain_3.jpg",
+    "newBasename": "golden_green_chain_3.jpg"
+  },
+  {
+    "src": "/workspaces/volubiks-jewelries/golden_green_chain_/images/4-2.jpg",
+    "dest": "/workspaces/volubiks-jewelries/public/images/golden_green_chain_/images/4-2.jpg",
+    "oldBasename": "golden_green_chain_/images/4-2.jpg",
+    "newBasename": "golden_green_chain_/images/4-2.jpg"
+  }
+]

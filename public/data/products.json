@@ -1,0 +1,71 @@
+[
+  {
+    "id": "1",
+    "name": "Royal Volubiks Diamond Pendant",
+    "slug": "royal-diamond-pendant",
+    "price": 24899,
+    "currency": "NGN",
+    "image": "/images/1.jpg",
+    "images": [],
+    "description": "A brilliant diamond pendant with classic setting.",
+    "category": "jewelries",
+    "featured": true,
+    "inventory": 12,
+    "tags": [
+      "diamond",
+      "pendant",
+      "luxury"
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Royal Volubiks Gold Ring",
+    "slug": "royal-gold-ring",
+    "price": 4999,
+    "currency": "NGN",
+    "image": "/images/2.jpg",
+    "images": [],
+    "description": "Handcrafted gold ring with polished finish.",
+    "category": "jewelries",
+    "featured": false,
+    "inventory": 30,
+    "tags": [
+      "gold",
+      "ring"
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Royal Volubiks Pearl Earrings",
+    "slug": "royal-pearl-earrings",
+    "price": 279,
+    "currency": "NGN",
+    "image": "/images/pearl-earrings.jpg",
+    "images": [],
+    "description": "Pearl drop earrings for elegant occasions.",
+    "category": "jewelries",
+    "featured": false,
+    "inventory": 25,
+    "tags": [
+      "pearl",
+      "earrings"
+    ]
+  },
+  {
+    "id": "4",
+    "name": "Sample Pendant",
+    "slug": "sample-pendant",
+    "price": 1499,
+    "currency": "NGN",
+    "image": "../public/images/IMG.jpg",
+    "images": [],
+    "description": "Sample pendant for import test",
+    "category": "jewelries",
+    "featured": true,
+    "inventory": 5,
+    "tags": [
+      "sample",
+      "pendant"
+    ]
+  }
+]

@@ -1,0 +1,31 @@
+id,name,slug,price,currency,image,description,category,featured,inventory,tags
+1,Royal Volubiks Diamond Pendant,royal-diamond-pendant,1299,NGN,,"A brilliant diamond pendant with classic setting.",necklace,true,12,diamond;pendant;luxury
+2,Royal Volubiks Gold Ring,royal-gold-ring,499,NGN,,"Handcrafted gold ring with polished finish.",rings,false,30,gold;ring
+3,Royal Volubiks Pearl Earrings,royal-pearl-earrings,279,NGN,,"Pearl drop earrings for elegant occasions.",earrings,false,25,pearl;earrings
+4,Sample Pendant,sample-pendant,1499,NGN,/images/4-1.jpg,"Sample pendant for import test",necklace,true,5,sample;pendant
+5,Volubiks Necklace 5,volubiks-necklace-5,907.01,NGN,/images/golden_green_chain_4.jpg,"A beautiful necklace from Volubiks, model 5. Crafted with attention to detail and timeless style.",necklace,false,49,luxury;handcrafted
+6,Volubiks Rings 6,volubiks-rings-6,169.9,NGN,/images/IMG-1.jpg,"A beautiful rings from Volubiks, model 6. Crafted with attention to detail and timeless style.",rings,false,18,vintage;diamond
+7,Volubiks Pendants 7,volubiks-pendants-7,719.74,NGN,/images/golden_green_chain_2.jpg,"A beautiful pendants from Volubiks, model 7. Crafted with attention to detail and timeless style.",pendants,false,14,minimal;vintage
+8,Volubiks Pendants 8,volubiks-pendants-8,1122.76,NGN,/images/Screenshot_20251225-175416.jpg,"A beautiful pendants from Volubiks, model 8. Crafted with attention to detail and timeless style.",pendants,true,13,silver;pearl
+9,Volubiks Pendants 9,volubiks-pendants-9,644.3,NGN,/images/IMG-1.jpg,"A beautiful pendants from Volubiks, model 9. Crafted with attention to detail and timeless style.",pendants,false,31,diamond;luxury
+10,Volubiks Necklace 10,volubiks-necklace-10,514.05,NGN,/images/4-2.jpg,"A beautiful necklace from Volubiks, model 10. Crafted with attention to detail and timeless style.",necklace,false,14,vintage;modern
+11,Volubiks Rings 11,volubiks-rings-11,307.81,NGN,/images/4-3.jpg,"A beautiful rings from Volubiks, model 11. Crafted with attention to detail and timeless style.",rings,false,17,stackable;minimal
+12,Volubiks Bracelets 12,volubiks-bracelets-12,508.85,NGN,/images/4.jpg,"A beautiful bracelets from Volubiks, model 12. Crafted with attention to detail and timeless style.",bracelets,false,35,stackable;silver
+13,Volubiks Pendants 13,volubiks-pendants-13,810.24,NGN,/images/Screenshot_20251225-175416.jpg,"A beautiful pendants from Volubiks, model 13. Crafted with attention to detail and timeless style.",pendants,false,25,pearl;gold
+14,Volubiks Anklet 14,volubiks-anklet-14,336.44,NGN,/images/4(1)-1.jpg,"A beautiful anklet from Volubiks, model 14. Crafted with attention to detail and timeless style.",anklet,false,13,stackable;diamond
+15,Volubiks Necklace 15,volubiks-necklace-15,870.82,NGN,/images/golden_green_chain_4.jpg,"A beautiful necklace from Volubiks, model 15. Crafted with attention to detail and timeless style.",necklace,false,38,vintage;silver
+16,Volubiks Bracelets 16,volubiks-bracelets-16,725.58,NGN,/images/Screenshot_20251225-175416.jpg,"A beautiful bracelets from Volubiks, model 16. Crafted with attention to detail and timeless style.",bracelets,false,19,pearl;luxury
+17,Volubiks Anklet 17,volubiks-anklet-17,731.22,NGN,/images/golden_green_chain_1.jpg,"A beautiful anklet from Volubiks, model 17. Crafted with attention to detail and timeless style.",anklet,true,48,handcrafted;pearl
+18,Volubiks Necklace 18,volubiks-necklace-18,764.67,NGN,/images/golden_green_chain_4.jpg,"A beautiful necklace from Volubiks, model 18. Crafted with attention to detail and timeless style.",necklace,true,14,vintage;stackable
+19,Volubiks Necklace 19,volubiks-necklace-19,300.02,NGN,/images/logo.jpg,"A beautiful necklace from Volubiks, model 19. Crafted with attention to detail and timeless style.",necklace,false,12,minimal;handcrafted
+20,Volubiks Pendants 20,volubiks-pendants-20,349.8,NGN,/images/IMG-2.jpg,"A beautiful pendants from Volubiks, model 20. Crafted with attention to detail and timeless style.",pendants,false,3,vintage;modern
+21,Volubiks Brooch 21,volubiks-brooch-21,1115.98,NGN,/images/IMG.jpg,"A beautiful brooch from Volubiks, model 21. Crafted with attention to detail and timeless style.",brooch,true,37,stackable;modern
+22,Volubiks Earrings 22,volubiks-earrings-22,420.07,NGN,/images/Screenshot_20251225-175416.jpg,"A beautiful earrings from Volubiks, model 22. Crafted with attention to detail and timeless style.",earrings,false,41,pearl
+23,Volubiks Bracelets 23,volubiks-bracelets-23,296.05,NGN,/images/4-3.jpg,"A beautiful bracelets from Volubiks, model 23. Crafted with attention to detail and timeless style.",bracelets,false,47,diamond;handcrafted
+24,Volubiks Necklace 24,volubiks-necklace-24,159.74,NGN,/images/IMG-1.jpg,"A beautiful necklace from Volubiks, model 24. Crafted with attention to detail and timeless style.",necklace,false,15,pearl;vintage
+25,Volubiks Necklace 25,volubiks-necklace-25,1293.69,NGN,/images/4-1.jpg,"A beautiful necklace from Volubiks, model 25. Crafted with attention to detail and timeless style.",necklace,false,12,diamond;modern
+26,Volubiks Pendants 26,volubiks-pendants-26,148.15,NGN,/images/golden_green_chain_3.jpg,"A beautiful pendants from Volubiks, model 26. Crafted with attention to detail and timeless style.",pendants,false,33,minimal;modern
+27,Volubiks Necklace 27,volubiks-necklace-27,395.22,NGN,/images/4-2.jpg,"A beautiful necklace from Volubiks, model 27. Crafted with attention to detail and timeless style.",necklace,false,40,silver;gold
+28,Volubiks Rings 28,volubiks-rings-28,1277.28,NGN,/images/4(1).jpg,"A beautiful rings from Volubiks, model 28. Crafted with attention to detail and timeless style.",rings,true,42,luxury;diamond
+29,Volubiks Necklace 29,volubiks-necklace-29,1218.31,NGN,/images/4-3.jpg,"A beautiful necklace from Volubiks, model 29. Crafted with attention to detail and timeless style.",necklace,true,21,minimal;silver
+30,Volubiks Anklet 30,volubiks-anklet-30,943.24,NGN,/images/IMG-2.jpg,"A beautiful anklet from Volubiks, model 30. Crafted with attention to detail and timeless style.",anklet,false,38,luxury;gold
