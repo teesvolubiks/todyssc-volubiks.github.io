@@ -33,15 +33,13 @@ export default function Landing() {
 
   // Show clothing images only (all available images are clothing)
   const thumbByCategory = (cat) => {
-    // Map each category to a C-prefixed image (existing clothing assets)
+    // Map each category to dedicated marketing images
     const mapping = {
-      jewelries: '/data/images/C1.jpg',
-      clothings: '/data/images/C2.jpg',
-      drinks: '/data/images/C3.jpg'
+      jewelries: '/data/images/hero/jewelries-hero.jpg',
+      clothings: '/data/images/hero/clothings-hero.jpg',
+      drinks: '/data/images/hero/drinks-hero.jpg'
     };
-    // If products data contains clothings, prefer the first product image
-    const p = productsData.find(x => x.category === 'clothings' && x.images && x.images.length);
-    return mapping[cat] || (p ? p.images[0] : '/data/images/C1.jpg');
+    return mapping[cat] || '/data/images/hero/clothings-hero.jpg';
   };
 
   return (
@@ -53,6 +51,9 @@ export default function Landing() {
 
       <main className="landing landing-minimal" aria-labelledby="landing-title">
         <header className="landing-hero">
+          <div className="landing-hero-background" role="img" aria-label="Volubiks Collections Hero">
+            <img src="/data/images/hero/clothings-hero.jpg" alt="Collections Hero" className="hero-bg-image" loading="lazy" />
+          </div>
           <div className="landing-hero-inner">
             <h1 id="landing-title" className="hero-ojaja">
               <span className="hero-crown" aria-hidden="true"><svg width="36" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8l3 8 4-6 4 6 4-8 3 8H2z" fill="#b8860b"/></svg></span>
