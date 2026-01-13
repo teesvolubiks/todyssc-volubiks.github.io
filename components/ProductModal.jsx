@@ -28,7 +28,7 @@ export default function ProductModal({ product, open, onClose, onAdd }) {
     setZoomed(!zoomed);
   };
 
-  const images = (product.images && product.images.length) ? product.images : (product.image ? [product.image] : []);
+  const images = (product.images && product.images.length) ? product.images.filter(img => !img.startsWith('data:image/svg+xml')) : (product.image ? [product.image] : []);
 
   // Determine grid layout based on number of images
   const numImages = images.length;

@@ -54,17 +54,14 @@ export default function Shop() {
             }
           }
 
-          // Filter imgs to only include existing images
-          const existingImgs = await Promise.all(imgs.map(async (img) => (await urlExists(img)) ? img : null));
-          const imgsFiltered = existingImgs.filter(Boolean);
+          // Ensure at least 4 images (fill with placeholder)
+          while (imgs.length < 4) imgs.push(placeholder);
 
-          return { ...product, images: imgsFiltered };
+          return { ...product, images: imgs };
         }));
 
         console.log('Normalized products:', expanded.length);
-        const filtered = expanded.filter(product => product.images.length > 0);
-        console.log('Filtered products with images:', filtered.length);
-        setProducts(filtered);
+        setProducts(expanded);
         setLoading(false);
       } catch (error) {
         console.error('Failed to fetch products from JSON:', error);
@@ -113,19 +110,16 @@ export default function Shop() {
             }
           }
 
-          // Filter imgs to only include existing images
-          const existingImgs = await Promise.all(imgs.map(async (img) => (await urlExists(img)) ? img : null));
-          const imgsFiltered = existingImgs.filter(Boolean);
+          // Ensure at least 4 images (fill with placeholder)
+          while (imgs.length < 4) imgs.push(placeholder);
 
-          return { ...product, images: imgsFiltered };
+          return { ...product, images: imgs };
         }));
 
         console.log('Normalized products:', expanded.length);
-        const filtered = expanded.filter(product => product.images.length > 0);
-        console.log('Filtered products with images:', filtered.length);
         // Only update if changed
-        if (JSON.stringify(filtered) !== JSON.stringify(products)) {
-          setProducts(filtered);
+        if (JSON.stringify(expanded) !== JSON.stringify(products)) {
+          setProducts(expanded);
         }
       } catch (error) {
         console.error('Failed to background fetch products from JSON:', error);
