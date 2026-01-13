@@ -62,8 +62,8 @@ export default function Shop() {
 
         console.log('Normalized products:', expanded.length);
         setProducts(expanded);
-        // Ensure skeleton shows for at least 3 seconds
-        setTimeout(() => setLoading(false), 3000);
+        // Ensure skeleton shows for at least 5 seconds
+        setTimeout(() => setLoading(false), 5000);
       } catch (error) {
         console.error('Failed to fetch products from JSON:', error);
         setLoading(false);
@@ -212,9 +212,8 @@ export default function Shop() {
         <meta property="og:url" content={`${window.location.origin}/shop${category ? `?category=${category}` : ''}`} />
         <meta property="og:type" content="website" />
       </Helmet>
+      {console.log('Rendering Shop, loading:', loading, 'products length:', products.length)}
       <div style={{ padding: 20 }}>
-        <h2>{category ? `${category.charAt(0).toUpperCase() + category.slice(1)}` : 'Shop'}</h2>
-        {q ? <p>Showing results for <strong>{q}</strong> — {results.length} found</p> : <p>{category ? `All ${category}` : 'All products'}</p>}
 
         {loading ? (
           <div className="loading-skeleton">
