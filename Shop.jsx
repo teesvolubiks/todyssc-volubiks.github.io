@@ -9,6 +9,7 @@ export default function Shop() {
   const [searchParams] = useSearchParams();
   const q = (searchParams.get('q') || '').trim().toLowerCase().replace(/[<>\"'&]/g, '');
   const category = searchParams.get('category') || '';
+  console.log('category:', category);
   const [products, setProducts] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
 
@@ -62,11 +63,9 @@ export default function Shop() {
 
         console.log('Normalized products:', expanded.length);
         setProducts(expanded);
-        // Ensure skeleton shows for at least 5 seconds
         setTimeout(() => setLoading(false), 5000);
       } catch (error) {
         console.error('Failed to fetch products from JSON:', error);
-        setLoading(false);
       }
     };
 
@@ -203,16 +202,6 @@ export default function Shop() {
 
   return (
     <>
-      <Helmet>
-        <title>{category ? `${category.charAt(0).toUpperCase() + category.slice(1)} - Royal Volubiks Stores` : 'Shop - Royal Volubiks Stores'}</title>
-        <meta name="description" content={category ? `Browse our ${category} collection at Royal Volubiks Stores. Find quality ${category} with fast shipping.` : 'Browse our complete collection of exquisite jewelry at Royal Volubiks Stores. Find rings, necklaces, earrings, and more with fast shipping.'} />
-        <meta name="keywords" content={category ? `${category}, buy ${category} online, Royal Volubiks Stores` : 'jewelry shop, buy jewelry online, rings, necklaces, earrings, Royal Volubiks Stores'} />
-        <meta property="og:title" content={category ? `${category.charAt(0).toUpperCase() + category.slice(1)} - Royal Volubiks Stores` : 'Shop - Royal Volubiks Stores'} />
-        <meta property="og:description" content={category ? `Browse our ${category} collection at Royal Volubiks Stores.` : 'Browse our complete collection of exquisite jewelry at Royal Volubiks Stores.'} />
-        <meta property="og:url" content={`${window.location.origin}/shop${category ? `?category=${category}` : ''}`} />
-        <meta property="og:type" content="website" />
-      </Helmet>
-      {console.log('Rendering Shop, loading:', loading, 'products length:', products.length)}
       <div style={{ padding: 20 }}>
 
         {loading ? (
