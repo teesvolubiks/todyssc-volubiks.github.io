@@ -10,9 +10,11 @@ export default function Shop() {
   const q = (searchParams.get('q') || '').trim().toLowerCase().replace(/[<>\"'&]/g, '');
   const category = searchParams.get('category') || '';
   const [products, setProducts] = React.useState([]);
+  const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
     const fetchProducts = async () => {
+      setLoading(true);
       try {
         const response = await fetch('/data/products.json?t=' + Date.now());
         const data = await response.json();
@@ -60,13 +62,67 @@ export default function Shop() {
 
         console.log('Normalized products:', expanded.length);
         setProducts(expanded);
+        setLoading(false);
       } catch (error) {
         console.error('Failed to fetch products from JSON:', error);
+        setLoading(false);
       }
     };
 
     fetchProducts();
-    const interval = setInterval(fetchProducts, 10000); // Update every 10 seconds
+    const backgroundFetch = async () => {
+      try {
+        const response = await fetch('/data/products.json?t=' + Date.now());
+        const data = await response.json();
+        console.log('Background fetch products from JSON:', data);
+        
+        // Ensure each product has images; expand grouped image sets (e.g. C1_1..C1_6)
+        const placeholder = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjgiIGhlaWdodD0iNjgiIHZpZXdCb3g9IjAgMCA2OCA2OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTAiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5ObyBJbWFnZTwvdGV4dD48L3N2Zz4=';
+
+        async function urlExists(url) {
+          try {
+            const res = await fetch(url, { method: 'HEAD' });
+            return res && res.ok;
+          } catch (e) {
+            return false;
+          }
+        }
+
+        // For each product try to expand image sets when filenames follow a numbered pattern
+        const normalizedBase = data.map(p => ({ ...p, images: p.images || [], image: p.image || '' }));
+
+        const expanded = await Promise.all(normalizedBase.map(async (product) => {
+          const imgs = Array.isArray(product.images) ? [...product.images] : [];
+
+          // If primary image exists and looks like '.../C1_1.jpg' or '.../name_1.jpg'
+          const match = (product.image || imgs[0] || '').match(/(\/data\/images\/)([A-Za-z0-9\-]+?)_(\d+)\.(jpg|jpeg|png|webp)$/i);
+          if (match) {
+            const prefix = match[1];
+            const base = match[2];
+            const ext = match[4] || 'jpg';
+
+            // probe up to 6 variants and collect those that exist
+            for (let i = 1; i <= 6; i++) {
+              const candidate = `${prefix}${base}_${i}.${ext}`;
+              if (!imgs.includes(candidate) && await urlExists(candidate)) {
+                imgs.push(candidate);
+              }
+            }
+          }
+
+          return { ...product, images: imgs };
+        }));
+
+        console.log('Normalized products:', expanded.length);
+        // Only update if changed
+        if (JSON.stringify(expanded) !== JSON.stringify(products)) {
+          setProducts(expanded);
+        }
+      } catch (error) {
+        console.error('Failed to background fetch products from JSON:', error);
+      }
+    };
+    const interval = setInterval(backgroundFetch, 10000); // Background check every 10 seconds
 
     return () => clearInterval(interval);
   }, []);
@@ -144,11 +200,11 @@ export default function Shop() {
   return (
     <>
       <Helmet>
-        <title>{category ? `${category.charAt(0).toUpperCase() + category.slice(1)} - Volubiks Jewelry` : 'Shop - Volubiks Jewelry'}</title>
-        <meta name="description" content={category ? `Browse our ${category} collection at Volubiks. Find quality ${category} with fast shipping.` : 'Browse our complete collection of exquisite jewelry at Volubiks. Find rings, necklaces, earrings, and more with fast shipping.'} />
-        <meta name="keywords" content={category ? `${category}, buy ${category} online, Volubiks` : 'jewelry shop, buy jewelry online, rings, necklaces, earrings, Volubiks'} />
-        <meta property="og:title" content={category ? `${category.charAt(0).toUpperCase() + category.slice(1)} - Volubiks Jewelry` : 'Shop - Volubiks Jewelry'} />
-        <meta property="og:description" content={category ? `Browse our ${category} collection at Volubiks.` : 'Browse our complete collection of exquisite jewelry at Volubiks.'} />
+        <title>{category ? `${category.charAt(0).toUpperCase() + category.slice(1)} - Royal Volubiks Stores` : 'Shop - Royal Volubiks Stores'}</title>
+        <meta name="description" content={category ? `Browse our ${category} collection at Royal Volubiks Stores. Find quality ${category} with fast shipping.` : 'Browse our complete collection of exquisite jewelry at Royal Volubiks Stores. Find rings, necklaces, earrings, and more with fast shipping.'} />
+        <meta name="keywords" content={category ? `${category}, buy ${category} online, Royal Volubiks Stores` : 'jewelry shop, buy jewelry online, rings, necklaces, earrings, Royal Volubiks Stores'} />
+        <meta property="og:title" content={category ? `${category.charAt(0).toUpperCase() + category.slice(1)} - Royal Volubiks Stores` : 'Shop - Royal Volubiks Stores'} />
+        <meta property="og:description" content={category ? `Browse our ${category} collection at Royal Volubiks Stores.` : 'Browse our complete collection of exquisite jewelry at Royal Volubiks Stores.'} />
         <meta property="og:url" content={`${window.location.origin}/shop${category ? `?category=${category}` : ''}`} />
         <meta property="og:type" content="website" />
       </Helmet>
@@ -156,7 +212,22 @@ export default function Shop() {
         <h2>{category ? `${category.charAt(0).toUpperCase() + category.slice(1)}` : 'Shop'}</h2>
         {q ? <p>Showing results for <strong>{q}</strong> — {results.length} found</p> : <p>{category ? `All ${category}` : 'All products'}</p>}
 
-        {results.length === 0 ? (
+        {loading ? (
+          <div className="loading-skeleton">
+            <div className="product-grid dense">
+              {Array.from({ length: 8 }, (_, i) => (
+                <div key={i} className="skeleton-card">
+                  <div className="skeleton-image"></div>
+                  <div className="skeleton-body">
+                    <div className="skeleton-title"></div>
+                    <div className="skeleton-text"></div>
+                    <div className="skeleton-price"></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : results.length === 0 ? (
           <p>No products found. Try a different search.</p>
         ) : (
           <div className="product-grid dense">

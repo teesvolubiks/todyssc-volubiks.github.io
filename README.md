@@ -108,4 +108,73 @@ inventory: 12
 tags: diamond;pendant;luxury
 ```
 
+## Seller Dashboard
+
+The application includes a comprehensive seller dashboard for managing your business operations.
+
+### Accessing the Dashboard
+
+1. Navigate to `/dashboard` in your browser
+2. Login with the admin password (default: `admin123`)
+3. Access all seller management features
+
+### Dashboard Features
+
+#### Overview
+- **Key Metrics**: Total products, orders, revenue, and low stock alerts
+- **Recent Orders**: Latest customer purchases with quick access
+- **Top Products**: Best-selling items and their performance
+
+#### Inventory Management
+- **Product Catalog**: View all products with stock levels
+- **Stock Alerts**: Identify low stock items (≤5 units)
+- **Product Editing**: Update prices, descriptions, categories, and inventory
+- **Search & Filter**: Find products quickly by name, ID, or stock status
+
+#### Order Management
+- **Order Tracking**: View all customer orders with full details
+- **Order Status**: Update order status (pending, processing, shipped, completed, cancelled)
+- **Customer Information**: Access buyer details and shipping information
+- **Payment Details**: Track payment methods and transaction IDs
+
+#### Customer Management
+- **Customer Database**: View all registered customers
+- **Purchase History**: See complete order history for each customer
+- **Customer Metrics**: Total spent, order count, and average order value
+- **Contact Information**: Access customer details for support
+
+#### Sales Analytics
+- **Revenue Tracking**: Monthly revenue charts and trends
+- **Sales Performance**: Compare current vs previous periods
+- **Top Products**: Identify best-selling items
+- **Category Breakdown**: Sales distribution by product category
+
+### Security Features
+
+- **Password Protection**: Secure admin access with configurable password
+- **Session Management**: Automatic logout on browser close
+- **Data Privacy**: Customer information securely stored locally
+
+### Data Storage
+
+Order and customer data is stored locally in the browser for demo purposes. In production:
+- Implement server-side database storage
+- Add user authentication and authorization
+- Enable data export/import capabilities
+- Set up automated backups
+
+### Sample Data
+
+To populate the dashboard with sample data for testing:
+
+```javascript
+// Run this in browser console or create a script
+const sampleOrders = [/* sample data from scripts/sample-orders.json */];
+localStorage.setItem('volubiks_orders', JSON.stringify(sampleOrders));
+```
+
+The dashboard provides complete visibility into your business operations, enabling you to track sales, manage inventory, and understand customer behavior effectively.
+
+```
+
 ```

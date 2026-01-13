@@ -64,7 +64,27 @@ export default function Payment() {
     }
     setProcessing(true);
     setTimeout(() => {
-      // simulate payment success
+      // Save order data for dashboard
+      const cart = loadCart();
+      const orderData = {
+        id: Date.now().toString(),
+        date: new Date().toISOString(),
+        status: 'completed',
+        paymentMethod: 'demo',
+        paymentStatus: 'paid',
+        transactionId: 'DEMO-' + Date.now(),
+        shipping,
+        items: cart,
+        subtotal: summary.subtotal,
+        vat: summary.vat,
+        total: summary.total
+      };
+
+      const existingOrders = JSON.parse(localStorage.getItem('volubiks_orders') || '[]');
+      existingOrders.push(orderData);
+      localStorage.setItem('volubiks_orders', JSON.stringify(existingOrders));
+
+      // Clear cart and show success
       localStorage.removeItem('rv_cart');
       window.dispatchEvent(new Event('storage'));
       setPaid(true);

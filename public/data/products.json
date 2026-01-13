@@ -1030,5 +1030,247 @@
       "quality",
       "wear"
     ]
+  },
+  {
+    "id": "47",
+    "name": "Jewelry Item #1",
+    "slug": "jewelry-1",
+    "price": 15000,
+    "currency": "NGN",
+    "image": "/data/images/J1_1.jpg",
+    "images": [
+      "/data/images/J1_1.jpg",
+      "/data/images/J1_2.jpg",
+      "/data/images/J1_3.jpg",
+      "/data/images/J1_4.jpg",
+      "/data/images/J1_5.jpg",
+      "/data/images/J1_6.jpg"
+    ],
+    "description": "Elegant jewelry collection item. Beautiful and timeless pieces for special occasions.",
+    "category": "jewelries",
+    "featured": false,
+    "inventory": 16,
+    "tags": [
+      "clothing",
+      "comfortable",
+      "stylish",
+      "quality",
+      "wear"
+    ]
+  },
+  {
+    "id": "48",
+    "name": "Jewelry Item #2",
+    "slug": "jewelry-2",
+    "price": 15000,
+    "currency": "NGN",
+    "image": "/data/images/J2_1.jpg",
+    "images": [
+      "/data/images/J2_1.jpg",
+      "/data/images/J2_2.jpg",
+      "/data/images/J2_3.jpg",
+      "/data/images/J2_4.jpg"
+    ],
+    "description": "Elegant jewelry collection item. Beautiful and timeless pieces for special occasions.",
+    "category": "jewelries",
+    "featured": false,
+    "inventory": 16,
+    "tags": [
+      "clothing",
+      "comfortable",
+      "stylish",
+      "quality",
+      "wear"
+    ]
+  },
+  {
+    "id": "49",
+    "name": "Jewelry Item #3",
+    "slug": "jewelry-3",
+    "price": 15000,
+    "currency": "NGN",
+    "image": "/data/images/J3_1.jpg",
+    "images": [
+      "/data/images/J3_1.jpg",
+      "/data/images/J3_2.jpg",
+      "/data/images/J3_3.jpg",
+      "/data/images/J3_4.jpg",
+      "/data/images/J3_5.jpg"
+    ],
+    "description": "Elegant jewelry collection item. Beautiful and timeless pieces for special occasions.",
+    "category": "jewelries",
+    "featured": false,
+    "inventory": 16,
+    "tags": [
+      "clothing",
+      "comfortable",
+      "stylish",
+      "quality",
+      "wear"
+    ]
+  },
+  {
+    "id": "50",
+    "name": "Jewelry Item #4",
+    "slug": "jewelry-4",
+    "price": 15000,
+    "currency": "NGN",
+    "image": "/data/images/J4_1.jpg",
+    "images": [
+      "/data/images/J4_1.jpg",
+      "/data/images/J4_2.jpg",
+      "/data/images/J4_3.jpg",
+      "/data/images/J4_4.jpg",
+      "/data/images/J4_5.jpg"
+    ],
+    "description": "Elegant jewelry collection item. Beautiful and timeless pieces for special occasions.",
+    "category": "jewelries",
+    "featured": false,
+    "inventory": 16,
+    "tags": [
+      "clothing",
+      "comfortable",
+      "stylish",
+      "quality",
+      "wear"
+    ]
+  },
+  {
+    "id": "51",
+    "name": "Jewelry Item #5",
+    "slug": "jewelry-5",
+    "price": 15000,
+    "currency": "NGN",
+    "image": "/data/images/J5_1.jpg",
+    "images": [
+      "/data/images/J5_1.jpg",
+      "/data/images/J5_2.jpg",
+      "/data/images/J5_3.jpg",
+      "/data/images/J5_4.jpg",
+      "/data/images/J5_5.jpg"
+    ],
+    "description": "Elegant jewelry collection item. Beautiful and timeless pieces for special occasions.",
+    "category": "jewelries",
+    "featured": false,
+    "inventory": 16,
+    "tags": [
+      "clothing",
+      "comfortable",
+      "stylish",
+      "quality",
+      "wear"
+    ]
+  },
+  {
+    "id": "52",
+    "name": "Jewelry Item #6",
+    "slug": "jewelry-6",
+    "price": 15000,
+    "currency": "NGN",
+    "image": "/data/images/J6_1.jpg",
+    "images": [
+      "/data/images/J6_1.jpg",
+      "/data/images/J6_2.jpg",
+      "/data/images/J6_3.jpg",
+      "/data/images/J6_4.jpg",
+      "/data/images/J6_5.jpg",
+      "/data/images/J6_6.jpg"
+    ],
+    "description": "Elegant jewelry collection item. Beautiful and timeless pieces for special occasions.",
+    "category": "jewelries",
+    "featured": false,
+    "inventory": 16,
+    "tags": [
+      "clothing",
+      "comfortable",
+      "stylish",
+      "quality",
+      "wear"
+    ]
+  },
+  {
+    "id": "53",
+    "name": "Jewelry Item #7",
+    "slug": "jewelry-7",
+    "price": 15000,
+    "currency": "NGN",
+    "image": "/data/images/J7_1.jpg",
+    "images": [
+      "/data/images/J7_1.jpg",
+      "/data/images/J7_2.jpg",
+      "/data/images/J7_3.jpg",
+      "/data/images/J7_4.jpg",
+      "/data/images/J7_5.jpg",
+      "/data/images/J7_6.jpg",
+      "/data/images/J7_8.jpg"
+    ],
+    "description": "Elegant jewelry collection item. Beautiful and timeless pieces for special occasions.",
+    "category": "jewelries",
+    "featured": false,
+    "inventory": 16,
+    "tags": [
+      "clothing",
+      "comfortable",
+      "stylish",
+      "quality",
+      "wear"
+    ]
+  },
+  {
+    "id": "54",
+    "name": "Jewelry Item #8",
+    "slug": "jewelry-8",
+    "price": 15000,
+    "currency": "NGN",
+    "image": "/data/images/J8_1.jpg",
+    "images": [
+      "/data/images/J8_1.jpg",
+      "/data/images/J8_2.jpg",
+      "/data/images/J8_3.jpg",
+      "/data/images/J8_4.jpg",
+      "/data/images/J8_5.jpg",
+      "/data/images/J8_6.jpg"
+    ],
+    "description": "Elegant jewelry collection item. Beautiful and timeless pieces for special occasions.",
+    "category": "jewelries",
+    "featured": false,
+    "inventory": 16,
+    "tags": [
+      "clothing",
+      "comfortable",
+      "stylish",
+      "quality",
+      "wear"
+    ]
+  },
+  {
+    "id": "55",
+    "name": "Jewelry Item #9",
+    "slug": "jewelry-9",
+    "price": 15000,
+    "currency": "NGN",
+    "image": "/data/images/J9_1.jpg",
+    "images": [
+      "/data/images/J9_1.jpg",
+      "/data/images/J9_2.jpg",
+      "/data/images/J9_3.jpg",
+      "/data/images/J9_4.jpg",
+      "/data/images/J9_5.jpg",
+      "/data/images/J9_6.jpg",
+      "/data/images/J9_7.jpg",
+      "/data/images/J9_8.jpg",
+      "/data/images/J9_9.jpg"
+    ],
+    "description": "Elegant jewelry collection item. Beautiful and timeless pieces for special occasions.",
+    "category": "jewelries",
+    "featured": false,
+    "inventory": 16,
+    "tags": [
+      "clothing",
+      "comfortable",
+      "stylish",
+      "quality",
+      "wear"
+    ]
   }
 ]

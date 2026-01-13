@@ -103,8 +103,8 @@ export default function Checkout() {
   return (
     <>
       <Helmet>
-        <title>Checkout - Volubiks Jewelry</title>
-        <meta name="description" content="Complete your purchase securely at Volubiks Jewelry. Review your cart and proceed to payment." />
+        <title>Checkout - aRoyal Volubiks Stores</title>
+        <meta name="description" content="Complete your purchase securely at aRoyal Volubiks Stores. Review your cart and proceed to payment." />
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <div style={{ padding: 20 }} className="checkout">

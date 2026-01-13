@@ -42,7 +42,7 @@ export default function Header() {
         <div className="logo-image">
           <img
             src="/data/images/logo.jpg"
-            alt="Royal Volubiks Jewelries"
+            alt="Royal Volubiks Stores"
             onError={(e) => {
               // Try SVG fallback once; hide image if both missing
               if (!e.currentTarget.dataset.fallback) {
@@ -56,7 +56,7 @@ export default function Header() {
         </div>
         <div>
           <div className="brand-title">Royal Volubiks</div>
-          <div className="brand-sub">Jewelries</div>
+          <div className="brand-sub">Stores</div>
         </div>
       </div>
 
@@ -84,6 +84,7 @@ export default function Header() {
       <nav className="nav">
         <Link to="/shop" className="nav-link">Shop</Link>
         <Link to="/checkout" className="nav-link">Checkout</Link>
+        <Link to="/dashboard" className="nav-link">Dashboard</Link>
         <button className="cart-btn" onClick={() => navigate('/checkout')} aria-label="Open cart">
           🛒
           {count > 0 && <span className="cart-badge">{count}</span>}

@@ -1,0 +1,96 @@
+[
+  {
+    "id": "1735689600000",
+    "date": "2025-01-01T10:00:00.000Z",
+    "status": "completed",
+    "paymentMethod": "paystack",
+    "paymentStatus": "paid",
+    "transactionId": "TXN-001",
+    "shipping": {
+      "fullName": "John Doe",
+      "email": "john@example.com",
+      "phone": "+2348012345678",
+      "address": "123 Main Street",
+      "city": "Lagos",
+      "postal": "100001",
+      "country": "Nigeria"
+    },
+    "items": [
+      {
+        "id": "1",
+        "name": "Royal Volubiks Diamond Pendant",
+        "price": 24899,
+        "quantity": 1,
+        "image": "/data/images/pendant.jpg"
+      },
+      {
+        "id": "2",
+        "name": "Gold Necklace",
+        "price": 45999,
+        "quantity": 2,
+        "image": "/data/images/necklace.jpg"
+      }
+    ],
+    "subtotal": 116897,
+    "vat": 17634.55,
+    "total": 134531.55
+  },
+  {
+    "id": "1735776000000",
+    "date": "2025-01-02T08:30:00.000Z",
+    "status": "completed",
+    "paymentMethod": "opay",
+    "paymentStatus": "paid",
+    "transactionId": "TXN-002",
+    "shipping": {
+      "fullName": "Jane Smith",
+      "email": "jane@example.com",
+      "phone": "+2348098765432",
+      "address": "456 Oak Avenue",
+      "city": "Abuja",
+      "postal": "900001",
+      "country": "Nigeria"
+    },
+    "items": [
+      {
+        "id": "3",
+        "name": "Silver Bracelet",
+        "price": 18999,
+        "quantity": 1,
+        "image": "/data/images/bracelet.jpg"
+      }
+    ],
+    "subtotal": 18999,
+    "vat": 2849.85,
+    "total": 21848.85
+  },
+  {
+    "id": "1735862400000",
+    "date": "2025-01-03T14:15:00.000Z",
+    "status": "pending",
+    "paymentMethod": "stripe",
+    "paymentStatus": "pending",
+    "transactionId": "TXN-003",
+    "shipping": {
+      "fullName": "Bob Johnson",
+      "email": "bob@example.com",
+      "phone": "+2348076543210",
+      "address": "789 Pine Road",
+      "city": "Port Harcourt",
+      "postal": "500001",
+      "country": "Nigeria"
+    },
+    "items": [
+      {
+        "id": "1",
+        "name": "Royal Volubiks Diamond Pendant",
+        "price": 24899,
+        "quantity": 3,
+        "image": "/data/images/pendant.jpg"
+      }
+    ],
+    "subtotal": 74697,
+    "vat": 11204.55,
+    "total": 85901.55
+  }
+]

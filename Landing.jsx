@@ -45,13 +45,13 @@ export default function Landing() {
   return (
     <>
       <Helmet>
-        <title>Welcome — Volubiks Collections</title>
-        <meta name="description" content="Subtle, welcoming entry to Volubiks — explore jewelries, clothings and drinks." />
+        <title>Welcome — Royal Volubiks Stores</title>
+        <meta name="description" content="Subtle, welcoming entry to Royal Volubiks Stores — explore jewelries, clothings and drinks." />
       </Helmet>
 
       <main className="landing landing-minimal" aria-labelledby="landing-title">
         <header className="landing-hero">
-          <div className="landing-hero-background" role="img" aria-label="Volubiks Collections Hero">
+          <div className="landing-hero-background" role="img" aria-label="aRoyal Volubiks Stores Hero">
             <img src="/data/images/hero/clothings-hero.jpg" alt="Collections Hero" className="hero-bg-image" loading="lazy" />
           </div>
           <div className="landing-hero-inner">
@@ -60,11 +60,11 @@ export default function Landing() {
               Ojaja
             </h1>
             <h2 className="hero-royal">Royal Volubiks Stores</h2>
-            <p className="hero-desc" aria-label="Categories">Jewelry <span className="sep">|</span> Clothing <span className="sep">|</span> Drinks</p>
+            <p className="hero-desc" aria-label="Categories"><Link to="/shop?category=jewelries">Jewelry</Link> <span className="sep">|</span> <Link to="/shop?category=clothings">Clothing</Link> <span className="sep">|</span> <Link to="/shop?category=drinks">Drinks</Link></p>
             <p className="landing-tag">Curated pieces — quietly exquisite.</p>
-            <div className="hero-ctas">
-              <Link to="/shop?collection=new" className="button primary" aria-label="Shop new arrivals">Shop New Arrivals</Link>
-              <Link to="/shop" className="button ghost" aria-label="Browse all products">Browse All</Link>
+            <div className="hero-ctas" style={{ textAlign: 'center' }}>
+              <Link to="/shop" className="button primary" style={{ textAlign: 'center' }} aria-label="Shop new arrivals">Shop New Arrivals</Link>
+              <Link to="/shop" className="button ghost" style={{ textAlign: 'center' }} aria-label="Browse all products">Browse All</Link>
             </div>
           </div>
         </header>
