@@ -57,22 +57,7 @@ export default function ProductModal({ product, open, onClose, onAdd }) {
     cols = 3;
   }
 
-  const gridStyle = {
-    display: 'grid',
-    gridTemplateRows: `repeat(${rows}, 1fr)`,
-    gridTemplateColumns: `repeat(${cols}, 1fr)`,
-    gap: '10px',
-    width: '100%',
-    height: '400px', // Fixed height for gallery
-  };
-
-  const imageStyle = {
-    width: '100%',
-    height: '100%',
-    objectFit: 'cover',
-    cursor: 'zoom-in',
-    borderRadius: '4px',
-  };
+  const gridClass = `image-grid grid-${rows}x${cols}`;
 
   useEffect(() => {
     function onKey(e) {
@@ -90,13 +75,12 @@ export default function ProductModal({ product, open, onClose, onAdd }) {
         <div className="modal-body">
           <div className="modal-gallery">
             {images.length > 0 ? (
-              <div style={gridStyle}>
+              <div className={gridClass}>
                 {images.slice(0, rows * cols).map((img, index) => (
                   <img
                     key={index}
                     src={img}
                     alt={`${product.name} ${index + 1}`}
-                    style={imageStyle}
                     onClick={() => { setCurrentImageIndex(index); setZoomed(true); }}
                   />
                 ))}
