@@ -62,7 +62,8 @@ export default function Shop() {
 
         console.log('Normalized products:', expanded.length);
         setProducts(expanded);
-        setLoading(false);
+        // Ensure skeleton shows for at least 1 second
+        setTimeout(() => setLoading(false), 1000);
       } catch (error) {
         console.error('Failed to fetch products from JSON:', error);
         setLoading(false);
