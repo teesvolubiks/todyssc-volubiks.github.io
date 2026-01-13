@@ -54,14 +54,17 @@ export default function Shop() {
             }
           }
 
-          // Ensure at least 4 images (fill with placeholder)
-          while (imgs.length < 4) imgs.push(placeholder);
+          // Filter imgs to only include existing images
+          const existingImgs = await Promise.all(imgs.map(async (img) => (await urlExists(img)) ? img : null));
+          const imgsFiltered = existingImgs.filter(Boolean);
 
-          return { ...product, images: imgs };
+          return { ...product, images: imgsFiltered };
         }));
 
         console.log('Normalized products:', expanded.length);
-        setProducts(expanded);
+        const filtered = expanded.filter(product => product.images.length > 0);
+        console.log('Filtered products with images:', filtered.length);
+        setProducts(filtered);
         setLoading(false);
       } catch (error) {
         console.error('Failed to fetch products from JSON:', error);
@@ -110,13 +113,19 @@ export default function Shop() {
             }
           }
 
-          return { ...product, images: imgs };
+          // Filter imgs to only include existing images
+          const existingImgs = await Promise.all(imgs.map(async (img) => (await urlExists(img)) ? img : null));
+          const imgsFiltered = existingImgs.filter(Boolean);
+
+          return { ...product, images: imgsFiltered };
         }));
 
         console.log('Normalized products:', expanded.length);
+        const filtered = expanded.filter(product => product.images.length > 0);
+        console.log('Filtered products with images:', filtered.length);
         // Only update if changed
-        if (JSON.stringify(expanded) !== JSON.stringify(products)) {
-          setProducts(expanded);
+        if (JSON.stringify(filtered) !== JSON.stringify(products)) {
+          setProducts(filtered);
         }
       } catch (error) {
         console.error('Failed to background fetch products from JSON:', error);

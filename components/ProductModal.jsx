@@ -5,6 +5,7 @@ export default function ProductModal({ product, open, onClose, onAdd }) {
   const navigate = useNavigate();
   const [closing, setClosing] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [zoomed, setZoomed] = useState(false);
   const ANIM_MS = 220;
 
   function closeWithAnim() {
@@ -12,6 +13,7 @@ export default function ProductModal({ product, open, onClose, onAdd }) {
     setTimeout(() => {
       setClosing(false);
       setCurrentImageIndex(0);
+      setZoomed(false);
       if (onClose) onClose();
     }, ANIM_MS);
   }
@@ -22,21 +24,55 @@ export default function ProductModal({ product, open, onClose, onAdd }) {
     setTimeout(() => closeWithAnim(), 50);
   }
 
-  const nextImage = () => {
-    if (images.length > 1) {
-      setCurrentImageIndex((prev) => (prev + 1) % images.length);
-    }
+  const toggleZoom = () => {
+    setZoomed(!zoomed);
   };
-
-  const prevImage = () => {
-    if (images.length > 1) {
-      setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
-    }
-  };
-
-  if (!product || !open) return null;
 
   const images = (product.images && product.images.length) ? product.images : (product.image ? [product.image] : []);
+
+  // Determine grid layout based on number of images
+  const numImages = images.length;
+  let rows, cols;
+  if (numImages === 1) {
+    rows = 1;
+    cols = 1;
+  } else if (numImages === 2) {
+    rows = 1;
+    cols = 2;
+  } else if (numImages === 3) {
+    rows = 1;
+    cols = 3;
+  } else if (numImages === 4) {
+    rows = 2;
+    cols = 2;
+  } else if (numImages <= 6) {
+    rows = 2;
+    cols = 3;
+  } else if (numImages <= 9) {
+    rows = 3;
+    cols = 3;
+  } else {
+    // For more than 9, still 3x3 but scroll or something, but unlikely
+    rows = 3;
+    cols = 3;
+  }
+
+  const gridStyle = {
+    display: 'grid',
+    gridTemplateRows: `repeat(${rows}, 1fr)`,
+    gridTemplateColumns: `repeat(${cols}, 1fr)`,
+    gap: '10px',
+    width: '100%',
+    height: '400px', // Fixed height for gallery
+  };
+
+  const imageStyle = {
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+    cursor: 'zoom-in',
+    borderRadius: '4px',
+  };
 
   useEffect(() => {
     function onKey(e) {
@@ -54,24 +90,17 @@ export default function ProductModal({ product, open, onClose, onAdd }) {
         <div className="modal-body">
           <div className="modal-gallery">
             {images.length > 0 ? (
-              <>
-                <img src={images[currentImageIndex]} alt={product.name} />
-                {images.length > 1 && (
-                  <>
-                    <button className="image-nav prev" onClick={prevImage}>&lt;</button>
-                    <button className="image-nav next" onClick={nextImage}>&gt;</button>
-                    <div className="image-indicators">
-                      {images.map((_, index) => (
-                        <span
-                          key={index}
-                          className={`indicator ${index === currentImageIndex ? 'active' : ''}`}
-                          onClick={() => setCurrentImageIndex(index)}
-                        />
-                      ))}
-                    </div>
-                  </>
-                )}
-              </>
+              <div style={gridStyle}>
+                {images.slice(0, rows * cols).map((img, index) => (
+                  <img
+                    key={index}
+                    src={img}
+                    alt={`${product.name} ${index + 1}`}
+                    style={imageStyle}
+                    onClick={() => { setCurrentImageIndex(index); setZoomed(true); }}
+                  />
+                ))}
+              </div>
             ) : (
               <div className="no-image">No image</div>
             )}
@@ -87,6 +116,11 @@ export default function ProductModal({ product, open, onClose, onAdd }) {
           </div>
         </div>
       </div>
+      {zoomed && (
+        <div className="zoom-overlay" onClick={toggleZoom}>
+          <img src={images[currentImageIndex]} alt={product.name} className="zoomed-image" />
+        </div>
+      )}
     </div>
   );
 }
