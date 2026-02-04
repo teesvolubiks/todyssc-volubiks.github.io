@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
@@ -22,10 +21,10 @@ export default function Footer() {
         <nav className="footer-col footer-links" aria-label="Footer navigation">
           <h4>Explore</h4>
           <ul>
-            <li><Link to="/shop">Shop</Link></li>
-            <li><Link to="/shop?category=jewelries">Jewelries</Link></li>
-            <li><Link to="/shop?category=clothings">Clothings</Link></li>
-            <li><Link to="/shop?category=drinks">Drinks</Link></li>
+            <li><a href="/shop" onClick={(e) => { e.preventDefault(); window.location.href = '/shop'; }}>Shop</a></li>
+            <li><a href="/shop?category=jewelries" onClick={(e) => { e.preventDefault(); window.location.href = '/shop?category=jewelries'; }}>Jewelries</a></li>
+            <li><a href="/shop?category=clothings" onClick={(e) => { e.preventDefault(); window.location.href = '/shop?category=clothings'; }}>Clothings</a></li>
+            <li><a href="/shop?category=drinks" onClick={(e) => { e.preventDefault(); window.location.href = '/shop?category=drinks'; }}>Drinks</a></li>
           </ul>
         </nav>
 
@@ -46,3 +45,4 @@ export default function Footer() {
     </footer>
   );
 }
+

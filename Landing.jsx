@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import PromoPopup from './components/PromoPopup';
 import ChatBot from './components/ChatBot';
@@ -59,17 +58,17 @@ export default function Landing() {
               Ojaja
             </h1>
             <h2 className="hero-royal">Royal Volubiks Stores</h2>
-            <p className="hero-desc" aria-label="Categories"><Link to="/shop?category=jewelries">Jewelry</Link> <span className="sep">|</span> <Link to="/shop?category=clothings">Clothing</Link> <span className="sep">|</span> <Link to="/shop?category=drinks">Drinks</Link></p>
+            <p className="hero-desc" aria-label="Categories"><a href="/shop?category=jewelries" onClick={(e) => { e.preventDefault(); window.location.href = '/shop?category=jewelries'; }}>Jewelry</a> <span className="sep">|</span> <a href="/shop?category=clothings" onClick={(e) => { e.preventDefault(); window.location.href = '/shop?category=clothings'; }}>Clothing</a> <span className="sep">|</span> <a href="/shop?category=drinks" onClick={(e) => { e.preventDefault(); window.location.href = '/shop?category=drinks'; }}>Drinks</a></p>
             <p className="landing-tag">Curated pieces — quietly exquisite.</p>
             <div className="hero-ctas" style={{ textAlign: 'center' }}>
-              <Link to="/shop" className="button primary" style={{ textAlign: 'center' }} aria-label="Shop new arrivals">Shop New Arrivals</Link>
-              <Link to="/shop" className="button ghost" style={{ textAlign: 'center' }} aria-label="Browse all products">Browse All</Link>
+              <a href="/shop" className="button primary" style={{ textAlign: 'center' }} aria-label="Shop new arrivals" onClick={(e) => { e.preventDefault(); window.location.href = '/shop'; }}>Shop New Arrivals</a>
+              <a href="/shop" className="button ghost" style={{ textAlign: 'center' }} aria-label="Browse all products" onClick={(e) => { e.preventDefault(); window.location.href = '/shop'; }}>Browse All</a>
             </div>
           </div>
         </header>
 
         <div className="testimonial" role="region" aria-label="Customer testimonial">
-          <p>“I felt so special wearing their pieces — delicate, high-quality and perfect for gifting.”</p>
+          <p>"I felt so special wearing their pieces — delicate, high-quality and perfect for gifting."</p>
           <div className="author">— Amina, Lagos</div>
         </div>
 
@@ -83,7 +82,7 @@ export default function Landing() {
                 <h3 id={`cat-${cat.key}`} className="category-title">{cat.label}</h3>
                 <p className="category-sub">{cat.subtitle}</p>
                 <div className="landing-cta">
-                  <Link to={`/shop?category=${encodeURIComponent(cat.key)}`} className="button primary" aria-label={`Browse ${cat.label}`}>Browse</Link>
+                  <a href={`/shop?category=${encodeURIComponent(cat.key)}`} className="button primary" aria-label={`Browse ${cat.label}`} onClick={(e) => { e.preventDefault(); window.location.href = `/shop?category=${encodeURIComponent(cat.key)}`; }}>Browse</a>
                 </div>
               </div>
             </article>
@@ -91,7 +90,7 @@ export default function Landing() {
         </section>
 
         <div style={{textAlign:'center',marginTop:18}}>
-          <Link to="/shop" className="button ghost">See all products</Link>
+          <a href="/shop" className="button ghost" onClick={(e) => { e.preventDefault(); window.location.href = '/shop'; }}>See all products</a>
         </div>
 
         <Footer />
@@ -102,3 +101,4 @@ export default function Landing() {
     </>
   );
 }
+

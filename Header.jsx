@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 function getCartCount() {
   try {
@@ -82,9 +82,15 @@ export default function Header() {
       </form>
 
       <nav className="nav">
-        <Link to="/shop" className="nav-link">Shop</Link>
-        <Link to="/checkout" className="nav-link">Checkout</Link>
-        <button className="cart-btn" onClick={() => navigate('/checkout')} aria-label="Open cart">
+        <a href="/shop" className="nav-link" onClick={(e) => {
+          e.preventDefault();
+          window.location.href = '/shop';
+        }}>Shop</a>
+        <a href="/checkout" className="nav-link" onClick={(e) => {
+          e.preventDefault();
+          window.location.href = '/checkout';
+        }}>Checkout</a>
+        <button className="cart-btn" onClick={() => window.location.href = '/checkout'} aria-label="Open cart">
           🛒
           {count > 0 && <span className="cart-badge">{count}</span>}
         </button>

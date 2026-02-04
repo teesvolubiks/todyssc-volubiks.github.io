@@ -8,6 +8,9 @@ export default function ProductModal({ product, open, onClose, onAdd }) {
   const [copyFeedback, setCopyFeedback] = useState('');
   const ANIM_MS = 220;
 
+  // Get images first before any function uses them
+  const images = (product.images && product.images.length) ? product.images.filter(img => !img.startsWith('data:image/svg+xml')) : (product.image ? [product.image] : []);
+
   function closeWithAnim() {
     setClosing(true);
     setTimeout(() => {
@@ -96,8 +99,6 @@ export default function ProductModal({ product, open, onClose, onAdd }) {
     onAdd(productToAdd);
     closeWithAnim();
   };
-
-  const images = (product.images && product.images.length) ? product.images.filter(img => !img.startsWith('data:image/svg+xml')) : (product.image ? [product.image] : []);
 
   // Determine grid layout based on number of images
   const numImages = images.length;

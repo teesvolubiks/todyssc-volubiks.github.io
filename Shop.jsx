@@ -2,7 +2,6 @@ import React from 'react';
 import { useSearchParams } from 'react-router-dom';
 import ProductCard from './components/ProductCard';
 import ProductModal from './components/ProductModal';
-import * as XLSX from 'xlsx';
 import { Helmet } from 'react-helmet-async';
 
 export default function Shop() {
@@ -12,122 +11,77 @@ export default function Shop() {
   console.log('category:', category);
   const [products, setProducts] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
+  const [preview, setPreview] = React.useState(null);
 
+  // Placeholder image for missing images
+  const placeholder = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjgiIGhlaWdodD0iNjgiIHZpZXdCb3g9IjAgMCA2OCA2OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTAiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5ObyBJbWFnZTwvdGV4dD48L3N2Zz4=';
+
+  // Helper to check if URL exists
+  async function urlExists(url) {
+    try {
+      const res = await fetch(url, { method: 'HEAD' });
+      return res && res.ok;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  // Function to expand image sets (e.g., C1_1, C1_2, C1_3, etc.)
+  async function expandImageSets(product) {
+    const imgs = Array.isArray(product.images) ? [...product.images] : [];
+    
+    // If primary image exists and looks like '.../C1_1.jpg' or '.../name_1.jpg'
+    const match = (product.image || imgs[0] || '').match(/(\/data\/images\/)([A-Za-z0-9\-]+?)_(\d+)\.(jpg|jpeg|png|webp)$/i);
+    if (match) {
+      const prefix = match[1];
+      const base = match[2];
+      const ext = match[4] || 'jpg';
+
+      // Probe up to 6 variants and collect those that exist
+      for (let i = 1; i <= 6; i++) {
+        const candidate = `${prefix}${base}_${i}.${ext}`;
+        if (!imgs.includes(candidate) && await urlExists(candidate)) {
+          imgs.push(candidate);
+        }
+      }
+    }
+
+    // Ensure at least 4 images (fill with placeholder)
+    while (imgs.length < 4) imgs.push(placeholder);
+
+    return { ...product, images: imgs };
+  }
+
+  // Fetch products on mount
   React.useEffect(() => {
     const fetchProducts = async () => {
       setLoading(true);
       try {
         const response = await fetch('/data/products.json?t=' + Date.now());
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const data = await response.json();
         console.log('Fetched products from JSON:', data);
         
-        // Ensure each product has images; expand grouped image sets (e.g. C1_1..C1_6)
-        const placeholder = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjgiIGhlaWdodD0iNjgiIHZpZXdCb3g9IjAgMCA2OCA2OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTAiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5ObyBJbWFnZTwvdGV4dD48L3N2Zz4=';
-
-        async function urlExists(url) {
-          try {
-            const res = await fetch(url, { method: 'HEAD' });
-            return res && res.ok;
-          } catch (e) {
-            return false;
-          }
-        }
-
-        // For each product try to expand image sets when filenames follow a numbered pattern
-        const normalizedBase = data.map(p => ({ ...p, images: p.images || [], image: p.image || '' }));
-
-        const expanded = await Promise.all(normalizedBase.map(async (product) => {
-          const imgs = Array.isArray(product.images) ? [...product.images] : [];
-
-          // If primary image exists and looks like '.../C1_1.jpg' or '.../name_1.jpg'
-          const match = (product.image || imgs[0] || '').match(/(\/data\/images\/)([A-Za-z0-9\-]+?)_(\d+)\.(jpg|jpeg|png|webp)$/i);
-          if (match) {
-            const prefix = match[1];
-            const base = match[2];
-            const ext = match[4] || 'jpg';
-
-            // probe up to 6 variants and collect those that exist
-            for (let i = 1; i <= 6; i++) {
-              const candidate = `${prefix}${base}_${i}.${ext}`;
-              if (!imgs.includes(candidate) && await urlExists(candidate)) {
-                imgs.push(candidate);
-              }
-            }
-          }
-
-          // Ensure at least 4 images (fill with placeholder)
-          while (imgs.length < 4) imgs.push(placeholder);
-
-          return { ...product, images: imgs };
+        // Normalize products and expand image sets
+        const normalizedBase = data.map(p => ({ 
+          ...p, 
+          images: p.images || [], 
+          image: p.image || '' 
         }));
 
+        const expanded = await Promise.all(normalizedBase.map(expandImageSets));
         console.log('Normalized products:', expanded.length);
         setProducts(expanded);
-        setTimeout(() => setLoading(false), 5000);
       } catch (error) {
         console.error('Failed to fetch products from JSON:', error);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchProducts();
-    const backgroundFetch = async () => {
-      try {
-        const response = await fetch('/data/products.json?t=' + Date.now());
-        const data = await response.json();
-        console.log('Background fetch products from JSON:', data);
-        
-        // Ensure each product has images; expand grouped image sets (e.g. C1_1..C1_6)
-        const placeholder = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjgiIGhlaWdodD0iNjgiIHZpZXdCb3g9IjAgMCA2OCA2OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTAiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5ObyBJbWFnZTwvdGV4dD48L3N2Zz4=';
-
-        async function urlExists(url) {
-          try {
-            const res = await fetch(url, { method: 'HEAD' });
-            return res && res.ok;
-          } catch (e) {
-            return false;
-          }
-        }
-
-        // For each product try to expand image sets when filenames follow a numbered pattern
-        const normalizedBase = data.map(p => ({ ...p, images: p.images || [], image: p.image || '' }));
-
-        const expanded = await Promise.all(normalizedBase.map(async (product) => {
-          const imgs = Array.isArray(product.images) ? [...product.images] : [];
-
-          // If primary image exists and looks like '.../C1_1.jpg' or '.../name_1.jpg'
-          const match = (product.image || imgs[0] || '').match(/(\/data\/images\/)([A-Za-z0-9\-]+?)_(\d+)\.(jpg|jpeg|png|webp)$/i);
-          if (match) {
-            const prefix = match[1];
-            const base = match[2];
-            const ext = match[4] || 'jpg';
-
-            // probe up to 6 variants and collect those that exist
-            for (let i = 1; i <= 6; i++) {
-              const candidate = `${prefix}${base}_${i}.${ext}`;
-              if (!imgs.includes(candidate) && await urlExists(candidate)) {
-                imgs.push(candidate);
-              }
-            }
-          }
-
-          // Ensure at least 4 images (fill with placeholder)
-          while (imgs.length < 4) imgs.push(placeholder);
-
-          return { ...product, images: imgs };
-        }));
-
-        console.log('Normalized products:', expanded.length);
-        // Only update if changed
-        if (JSON.stringify(expanded) !== JSON.stringify(products)) {
-          setProducts(expanded);
-        }
-      } catch (error) {
-        console.error('Failed to background fetch products from JSON:', error);
-      }
-    };
-    const interval = setInterval(backgroundFetch, 10000); // Background check every 10 seconds
-
-    return () => clearInterval(interval);
   }, []);
 
   // Improved search: token matching + simple fuzzy (Levenshtein) scoring and ranking
@@ -183,8 +137,6 @@ export default function Shop() {
     results = scored.length ? scored : results.filter(p => p.name.toLowerCase().includes(q) || (p.id || '').toLowerCase().includes(q));
   }
 
-  const [preview, setPreview] = React.useState(null);
-
   const onAdd = (product) => {
     try {
       const cart = JSON.parse(localStorage.getItem('rv_cart') || '[]');
@@ -202,6 +154,11 @@ export default function Shop() {
 
   return (
     <>
+      <Helmet>
+        <title>Shop - Volubiks</title>
+        <meta name="description" content="Browse our collection of quality products at Volubiks Stores" />
+      </Helmet>
+      
       <div style={{ padding: 20 }}>
 
         {loading ? (
@@ -234,3 +191,4 @@ export default function Shop() {
     </>
   );
 }
+

@@ -1,33 +1,62 @@
 import React, { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 
 export default function ProductPage() {
   const { id } = useParams();
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [selectedSet, setSelectedSet] = useState(null);
 
   React.useEffect(() => {
     const fetchProducts = async () => {
+      setLoading(true);
       try {
         const response = await fetch('/data/products.json?t=' + Date.now(), { cache: 'no-cache' });
         const data = await response.json();
         setProducts(data);
       } catch (error) {
         console.error('Failed to fetch products:', error);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchProducts();
-    const interval = setInterval(fetchProducts, 10000); // Update every 10 seconds
-
-    return () => clearInterval(interval);
   }, []);
 
   const product = products.find(p => p.id === id || p.slug === id);
+
+  // Show loading skeleton while fetching
+  if (loading) {
+    return (
+      <div style={{ padding: 20 }}>
+        <div className="loading-skeleton">
+          <div className="product-page-skeleton">
+            <div className="skeleton-gallery">
+              <div className="skeleton-main-image"></div>
+              <div className="skeleton-thumbs">
+                {Array.from({ length: 4 }, (_, i) => (
+                  <div key={i} className="skeleton-thumb"></div>
+                ))}
+              </div>
+            </div>
+            <div className="skeleton-info">
+              <div className="skeleton-title"></div>
+              <div className="skeleton-price"></div>
+              <div className="skeleton-text"></div>
+              <div className="skeleton-text short"></div>
+              <div className="skeleton-button"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   if (!product) return (
     <div style={{ padding: 20 }}>
-      <p>Product not found. <Link to="/shop">Back to shop</Link></p>
+      <p>Product not found. <a href="/shop" onClick={(e) => { e.preventDefault(); window.location.href = '/shop'; }}>Back to shop</a></p>
     </div>
   );
 
@@ -97,7 +126,7 @@ export default function ProductPage() {
         </script>
       </Helmet>
       <div style={{ padding: 20 }} className="product-page">
-        <p><Link to="/shop">← Back to shop</Link></p>
+        <p><a href="/shop" onClick={(e) => { e.preventDefault(); window.location.href = '/shop'; }}>← Back to shop</a></p>
         <div className="product-detail">
           <div className="gallery">
             <div className="main-image">
@@ -149,3 +178,4 @@ export default function ProductPage() {
     </>
   );
 }
+

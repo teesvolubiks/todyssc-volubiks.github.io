@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 
 function loadCart() {
@@ -112,7 +111,7 @@ export default function Checkout() {
         {items.length === 0 ? (
           <div>
             <p>Your cart is empty.</p>
-            <Link to="/shop" className="button primary">Go to shop</Link>
+            <a href="/shop" className="button primary" onClick={(e) => { e.preventDefault(); window.location.href = '/shop'; }}>Go to shop</a>
           </div>
         ) : (
           <div className="checkout-grid">
@@ -142,8 +141,8 @@ export default function Checkout() {
             <div className="summary-row"><span>VAT (10%)</span><strong>₦{vat.toFixed(2)}</strong></div>
             <div className="summary-total"><span>Total</span><strong>₦{total.toFixed(2)}</strong></div> 
 
-            <Link to="/payment" state={{ subtotal, vat, total }} className="button primary" style={{ display: 'block', marginTop: 12 }}>Proceed to Payment</Link>
-            <Link to="/shop" className="button ghost" style={{ display: 'block', marginTop: 8 }}>Continue shopping</Link>
+            <a href="/payment" className="button primary" style={{ display: 'block', marginTop: 12 }} onClick={(e) => { e.preventDefault(); window.location.href = '/payment'; }}>Proceed to Payment</a>
+            <a href="/shop" className="button ghost" style={{ display: 'block', marginTop: 8 }} onClick={(e) => { e.preventDefault(); window.location.href = '/shop'; }}>Continue shopping</a>
           </aside>
         </div>
       )}
@@ -151,3 +150,4 @@ export default function Checkout() {
     </>
   );
 }
+
