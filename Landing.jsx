@@ -31,15 +31,14 @@ export default function Landing() {
     return () => { mounted = false; };
   }, []);
 
-  // Show clothing images only (all available images are clothing)
+  // Map each category to dedicated marketing images
   const thumbByCategory = (cat) => {
-    // Map each category to dedicated marketing images
     const mapping = {
-      jewelries: '/data/images/hero/jewelries-hero.jpg',
-      clothings: '/data/images/hero/clothings-hero.jpg',
-      drinks: '/data/images/hero/drinks-hero.jpg'
+      jewelries: '/data/images/hero/jewelryhero.png',
+      clothings: '/data/images/hero/clothinghero.png',
+      drinks: '/data/images/hero/drinkhero.png'
     };
-    return mapping[cat] || '/data/images/hero/clothings-hero.jpg';
+    return mapping[cat] || '/data/images/hero/jewelryhero.png';
   };
 
   return (
@@ -51,8 +50,8 @@ export default function Landing() {
 
       <main className="landing landing-minimal" aria-labelledby="landing-title">
         <header className="landing-hero">
-          <div className="landing-hero-background" role="img" aria-label="aRoyal Volubiks Stores Hero">
-            <img src="/data/images/hero/clothings-hero.jpg" alt="Collections Hero" className="hero-bg-image" loading="lazy" />
+          <div className="landing-hero-background" role="img" aria-label="Royal Volubiks Stores Hero">
+            <img src="/data/images/hero/jewelryhero.png" alt="Collections Hero" className="hero-bg-image" loading="lazy" />
           </div>
           <div className="landing-hero-inner">
             <h1 id="landing-title" className="hero-ojaja">

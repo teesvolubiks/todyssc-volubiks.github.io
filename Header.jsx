@@ -84,7 +84,6 @@ export default function Header() {
       <nav className="nav">
         <Link to="/shop" className="nav-link">Shop</Link>
         <Link to="/checkout" className="nav-link">Checkout</Link>
-        <Link to="/dashboard" className="nav-link">Dashboard</Link>
         <button className="cart-btn" onClick={() => navigate('/checkout')} aria-label="Open cart">
           🛒
           {count > 0 && <span className="cart-badge">{count}</span>}

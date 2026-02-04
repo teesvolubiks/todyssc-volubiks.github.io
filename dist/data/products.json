@@ -1,180 +1,197 @@
 [
   {
     "id": "1",
-    "name": "Clothing Item #1",
+    "name": "Multi-color V-Shaped Design",
     "slug": "clothing-1",
-    "price": 5300,
+    "price": 6500,
     "currency": "NGN",
     "image": "/data/images/C1_1.jpg",
     "images": [
       "/data/images/C1_1.jpg",
       "/data/images/C1_2.jpg"
     ],
-    "description": "Premium clothing collection item 1. Comfortable and stylish wear for everyday occasions.",
+    "description": "Premium Quality Clothing Material for African Design",
     "category": "clothings",
-    "featured": false,
-    "inventory": 16,
+    "featured": true,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
       "stylish",
       "quality",
-      "wear"
+      "wear",
+      "african",
+      "clothings",
+      "material",
+      "materials"
     ]
   },
   {
     "id": "2",
-    "name": "Clothing Item #2",
+    "name": "Colorful Turkeytail Design Material",
     "slug": "clothing-2",
-    "price": 5600,
+    "price": 18600,
     "currency": "NGN",
     "image": "/data/images/C2_1.jpg",
     "images": [
       "/data/images/C2_1.jpg",
       "/data/images/C2_2.jpg"
     ],
-    "description": "Premium clothing collection item 2. Comfortable and stylish wear for everyday occasions.",
+    "description": "Premium Quality Colorful African Style Design.",
     "category": "clothings",
-    "featured": false,
-    "inventory": 17,
+    "featured": true,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
       "stylish",
       "quality",
-      "wear"
+      "colorful",
+      "wear",
+      "african"
     ]
   },
   {
     "id": "3",
-    "name": "Clothing Item #3",
+    "name": "Multicolored Circular Design Clothing",
     "slug": "clothing-3",
-    "price": 5900,
+    "price": 10000,
     "currency": "NGN",
     "image": "/data/images/C3_1.jpg",
     "images": [
       "/data/images/C3_1.jpg",
       "/data/images/C3_2.jpg"
     ],
-    "description": "Premium clothing collection item 3. Comfortable and stylish wear for everyday occasions.",
+    "description": "Premium clothing for Great African Designs",
     "category": "clothings",
     "featured": true,
-    "inventory": 18,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
       "stylish",
       "quality",
-      "wear"
+      "wear",
+      "african",
+      "colorful"
     ]
   },
   {
     "id": "4",
-    "name": "Clothing Item #4",
+    "name": "Purple African Pattern Design",
     "slug": "clothing-4",
-    "price": 6200,
+    "price": 9000,
     "currency": "NGN",
     "image": "/data/images/C4_1.jpg",
     "images": [
       "/data/images/C4_1.jpg",
       "/data/images/C4_2.jpg"
     ],
-    "description": "Premium clothing collection item 4. Comfortable and stylish wear for everyday occasions.",
+    "description": "Premium African Clothing Material",
     "category": "clothings",
     "featured": false,
-    "inventory": 19,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
       "stylish",
       "quality",
-      "wear"
+      "wear",
+      "african",
+      "purple",
+      "design"
     ]
   },
   {
     "id": "5",
-    "name": "Clothing Item #5",
+    "name": "Golden Flowered Ring African Clothing",
     "slug": "clothing-5",
-    "price": 6500,
+    "price": 8000,
     "currency": "NGN",
     "image": "/data/images/C5_1.jpg",
     "images": [
       "/data/images/C5_1.jpg",
       "/data/images/C5_2.jpg"
     ],
-    "description": "Premium clothing collection item 5. Comfortable and stylish wear for everyday occasions.",
+    "description": "Premium Golden Clothing Colorful and Stylish Wear for Everyday occasions.",
     "category": "clothings",
-    "featured": false,
-    "inventory": 20,
+    "featured": true,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
       "stylish",
       "quality",
-      "wear"
+      "wear",
+      "golden",
+      "flowered"
     ]
   },
   {
     "id": "6",
-    "name": "Clothing Item #6",
+    "name": "Blue Marked African Design Material",
     "slug": "clothing-6",
-    "price": 6800,
+    "price": 6000,
     "currency": "NGN",
     "image": "/data/images/C6_1.jpg",
     "images": [
       "/data/images/C6_1.jpg",
       "/data/images/C6_2.jpg"
     ],
-    "description": "Premium clothing collection item 6. Comfortable and stylish wear for everyday occasions.",
+    "description": "Blue Premium Quality Stylish African Print.",
     "category": "clothings",
     "featured": true,
-    "inventory": 21,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
       "stylish",
       "quality",
-      "wear"
+      "wear",
+      "marked",
+      "blue"
     ]
   },
   {
     "id": "7",
-    "name": "Clothing Item #7",
+    "name": "Multicolor Brownish Cloud African Print Design",
     "slug": "clothing-7",
-    "price": 7100,
+    "price": 6000,
     "currency": "NGN",
     "image": "/data/images/C7_1.jpg",
     "images": [
       "/data/images/C7_1.jpg",
       "/data/images/C7_2.jpg"
     ],
-    "description": "Premium clothing collection item 7. Comfortable and stylish wear for everyday occasions.",
+    "description": "Superior Quality African Quality Print Great for all occassions",
     "category": "clothings",
-    "featured": false,
-    "inventory": 22,
+    "featured": true,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
       "stylish",
       "quality",
-      "wear"
+      "wear",
+      "african"
+      
     ]
   },
   {
     "id": "8",
-    "name": "Clothing Item #8",
+    "name": "Reddish Faded Lines Patterned Design",
     "slug": "clothing-8",
-    "price": 7400,
+    "price": 6000,
     "currency": "NGN",
     "image": "/data/images/C8_1.jpg",
     "images": [
       "/data/images/C8_1.jpg",
       "/data/images/C8_2.jpg"
     ],
-    "description": "Premium clothing collection item 8. Comfortable and stylish wear for everyday occasions.",
+    "description": "Superior Quality African Design Print Material for everyday occasions.",
     "category": "clothings",
-    "featured": false,
-    "inventory": 23,
+    "featured": true,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
@@ -185,19 +202,19 @@
   },
   {
     "id": "9",
-    "name": "Clothing Item #9",
+    "name": "Winesh Curly Pattern Design",
     "slug": "clothing-9",
-    "price": 7700,
+    "price": 6000,
     "currency": "NGN",
     "image": "/data/images/C9_1.jpg",
     "images": [
       "/data/images/C9_1.jpg",
       "/data/images/C9_2.jpg"
     ],
-    "description": "Premium clothing collection item 9. Comfortable and stylish wear for everyday occasions.",
+    "description": "Premium Clothing Quality African Print for all types of occassions.",
     "category": "clothings",
     "featured": true,
-    "inventory": 24,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
@@ -208,19 +225,19 @@
   },
   {
     "id": "10",
-    "name": "Clothing Item #10",
+    "name": "Boxed Purpish Patterned Design",
     "slug": "clothing-10",
-    "price": 8000,
+    "price": 6000,
     "currency": "NGN",
     "image": "/data/images/C10_1.jpg",
     "images": [
       "/data/images/C10_1.jpg",
       "/data/images/C10_2.jpg"
     ],
-    "description": "Premium clothing collection item 10. Comfortable and stylish wear for everyday occasions.",
+    "description": "Premium Quality African Pattern Design for All types of Occassions",
     "category": "clothings",
-    "featured": false,
-    "inventory": 25,
+    "featured": true,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
@@ -231,19 +248,19 @@
   },
   {
     "id": "11",
-    "name": "Clothing Item #11",
+    "name": "Atmospheric Clouded Pattern Design Material",
     "slug": "clothing-11",
-    "price": 8300,
+    "price": 6000,
     "currency": "NGN",
     "image": "/data/images/C11_1.jpg",
     "images": [
       "/data/images/C11_1.jpg",
       "/data/images/C11_2.jpg"
     ],
-    "description": "Premium clothing collection item 11. Comfortable and stylish wear for everyday occasions.",
+    "description": "Premium Quality Clothing Design Material.",
     "category": "clothings",
     "featured": true,
-    "inventory": 26,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
@@ -254,18 +271,18 @@
   },
   {
     "id": "12",
-    "name": "Clothing Item #12",
+    "name": "",
     "slug": "clothing-12",
-    "price": 8600,
+    "price": 6000,
     "currency": "NGN",
     "image": "/data/images/C12_1.jpg",
     "images": [
       "/data/images/C12_1.jpg"
     ],
-    "description": "Premium clothing collection item 12. Comfortable and stylish wear for everyday occasions.",
+    "description": "Superior Quality African Print.",
     "category": "clothings",
-    "featured": false,
-    "inventory": 27,
+    "featured": true,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
@@ -276,18 +293,18 @@
   },
   {
     "id": "13",
-    "name": "Clothing Item #13",
+    "name": "Colored B/W Mixed 2 Pattern Design",
     "slug": "clothing-13",
-    "price": 8900,
+    "price": 6000,
     "currency": "NGN",
     "image": "/data/images/C13_1.jpg",
     "images": [
       "/data/images/C13_1.jpg"
     ],
-    "description": "Premium clothing collection item 13. Comfortable and stylish wear for everyday occasions.",
+    "description": "Superior Quality African Design Material.",
     "category": "clothings",
-    "featured": false,
-    "inventory": 28,
+    "featured": true,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
@@ -298,18 +315,18 @@
   },
   {
     "id": "14",
-    "name": "Clothing Item #14",
+    "name": "Brownish Circled Flowered African Patterned Design",
     "slug": "clothing-14",
-    "price": 9200,
+    "price": 6000,
     "currency": "NGN",
     "image": "/data/images/C14_1.jpg",
     "images": [
       "/data/images/C14_1.jpg"
     ],
-    "description": "Premium clothing collection item 14. Comfortable and stylish wear for everyday occasions.",
+    "description": "Premium Clothing Collection, African .",
     "category": "clothings",
     "featured": true,
-    "inventory": 29,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
@@ -320,18 +337,18 @@
   },
   {
     "id": "15",
-    "name": "Clothing Item #15",
+    "name": "Greenish Tiled Multishaped Pattern Design",
     "slug": "clothing-15",
-    "price": 9500,
+    "price": 6000,
     "currency": "NGN",
     "image": "/data/images/C15_1.jpg",
     "images": [
       "/data/images/C15_1.jpg"
     ],
-    "description": "Premium clothing collection item 15. Comfortable and stylish wear for everyday occasions.",
+    "description": "Premium African Print Design.",
     "category": "clothings",
-    "featured": false,
-    "inventory": 30,
+    "featured": true,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
@@ -342,18 +359,18 @@
   },
   {
     "id": "16",
-    "name": "Clothing Item #16",
+    "name": "Two Pattern Blue Black Patterned Design",
     "slug": "clothing-16",
-    "price": 9800,
+    "price": 6000,
     "currency": "NGN",
     "image": "/data/images/C16_1.jpg",
     "images": [
       "/data/images/C16_1.jpg"
     ],
-    "description": "Premium clothing collection item 16. Comfortable and stylish wear for everyday occasions.",
+    "description": "Superior Quality African Pattern Design",
     "category": "clothings",
-    "featured": false,
-    "inventory": 31,
+    "featured": true,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
@@ -364,18 +381,18 @@
   },
   {
     "id": "17",
-    "name": "Clothing Item #17",
+    "name": "Multicolored Flowered Tip Pattern Design",
     "slug": "clothing-17",
-    "price": 10100,
+    "price": 6000,
     "currency": "NGN",
     "image": "/data/images/C17_1.jpg",
     "images": [
       "/data/images/C17_1.jpg"
     ],
-    "description": "Premium clothing collection item 17. Comfortable and stylish wear for everyday occasions.",
+    "description": "Multicolored Flowered African Design for All Occassions. ",
     "category": "clothings",
     "featured": true,
-    "inventory": 32,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
@@ -386,18 +403,18 @@
   },
   {
     "id": "18",
-    "name": "Clothing Item #18",
+    "name": "Sharp Squared Shaped African Pattern Design",
     "slug": "clothing-18",
-    "price": 10400,
+    "price": 6000,
     "currency": "NGN",
     "image": "/data/images/C18_1.jpg",
     "images": [
       "/data/images/C18_1.jpg"
     ],
-    "description": "Premium clothing collection item 18. Comfortable and stylish wear for everyday occasions.",
+    "description": "Premium Quality African Print for All Occassions",
     "category": "clothings",
-    "featured": false,
-    "inventory": 33,
+    "featured": true,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
@@ -408,18 +425,18 @@
   },
   {
     "id": "19",
-    "name": "Clothing Item #19",
+    "name": "Multi-Designed Squared Pattern Design",
     "slug": "clothing-19",
-    "price": 10700,
+    "price": 6000,
     "currency": "NGN",
     "image": "/data/images/C19_1.jpg",
     "images": [
       "/data/images/C19_1.jpg"
     ],
-    "description": "Premium clothing collection item 19. Comfortable and stylish wear for everyday occasions.",
+    "description": "Superior Quality Afrivan Design Fabric for All Types of Occassions",
     "category": "clothings",
-    "featured": false,
-    "inventory": 34,
+    "featured": true,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
@@ -430,18 +447,18 @@
   },
   {
     "id": "20",
-    "name": "Clothing Item #20",
+    "name": "3 Pattern Purpish Designed African Fabric",
     "slug": "clothing-20",
-    "price": 11000,
+    "price": 6000,
     "currency": "NGN",
     "image": "/data/images/C20_1.jpg",
     "images": [
       "/data/images/C20_1.jpg"
     ],
-    "description": "Premium clothing collection item 20. Comfortable and stylish wear for everyday occasions.",
+    "description": "Brilliant Colors African Pattern Fabric",
     "category": "clothings",
     "featured": true,
-    "inventory": 35,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
@@ -452,19 +469,19 @@
   },
   {
     "id": "21",
-    "name": "Clothing Item #21",
+    "name": "Purple African Mixed Pattern Design",
     "slug": "clothing-21",
-    "price": 11300,
+    "price": 6000,
     "currency": "NGN",
     "image": "/data/images/C21_1.jpg",
     "images": [
       "/data/images/C21_1.jpg",
       "/data/images/C21_2.jpg"
     ],
-    "description": "Premium clothing collection item 21. Comfortable and stylish wear for everyday occasions.",
+    "description": "Superior Quality Colorful African Mixed Design Fabric",
     "category": "clothings",
-    "featured": false,
-    "inventory": 36,
+    "featured": true,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
@@ -475,19 +492,19 @@
   },
   {
     "id": "22",
-    "name": "Clothing Item #22",
+    "name": "Mixed B/W Core+Mixed African Patterned Design",
     "slug": "clothing-22",
-    "price": 11600,
+    "price": 6000,
     "currency": "NGN",
     "image": "/data/images/C22_1.jpg",
     "images": [
       "/data/images/C22_1.jpg",
       "/data/images/C22_2.jpg"
     ],
-    "description": "Premium clothing collection item 22. Comfortable and stylish wear for everyday occasions.",
+    "description": "Premium Clothing Fabric for All Occassions",
     "category": "clothings",
-    "featured": false,
-    "inventory": 37,
+    "featured": true,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
@@ -498,19 +515,19 @@
   },
   {
     "id": "23",
-    "name": "Clothing Item #23",
+    "name": "Blue Cloudy African Design Fabric",
     "slug": "clothing-23",
-    "price": 11900,
+    "price": 6000,
     "currency": "NGN",
     "image": "/data/images/C23_1.jpg",
     "images": [
       "/data/images/C23_1.jpg",
       "/data/images/C23_2.jpg"
     ],
-    "description": "Premium clothing collection item 23. Comfortable and stylish wear for everyday occasions.",
+    "description": "Premium clothing collection for everyday occasions.",
     "category": "clothings",
     "featured": true,
-    "inventory": 38,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
@@ -521,19 +538,19 @@
   },
   {
     "id": "24",
-    "name": "Clothing Item #24",
+    "name": "Multicolored Flowered African Pattern Design Fabric",
     "slug": "clothing-24",
-    "price": 12200,
+    "price": 6000,
     "currency": "NGN",
     "image": "/data/images/C24_1.jpg",
     "images": [
       "/data/images/C24_1.jpg",
       "/data/images/C24_2.jpg"
     ],
-    "description": "Premium clothing collection item 24. Comfortable and stylish wear for everyday occasions.",
+    "description": "Premium clothing collection for everyday occasions.",
     "category": "clothings",
-    "featured": false,
-    "inventory": 39,
+    "featured": true,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
@@ -544,19 +561,19 @@
   },
   {
     "id": "25",
-    "name": "Clothing Item #25",
+    "name": "Circular Red and Wine Shaped Design Fabric",
     "slug": "clothing-25",
-    "price": 12500,
+    "price": 6000,
     "currency": "NGN",
     "image": "/data/images/C25_1.jpg",
     "images": [
       "/data/images/C25_1.jpg",
       "/data/images/C25_2.jpg"
     ],
-    "description": "Premium clothing collection item 25. Comfortable and stylish wear for everyday occasions.",
+    "description": "Premium clothing collection for everyday occasions.",
     "category": "clothings",
-    "featured": false,
-    "inventory": 40,
+    "featured": true,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
@@ -567,19 +584,19 @@
   },
   {
     "id": "26",
-    "name": "Clothing Item #26",
+    "name": "Multicolored Flowered African Design Fabric",
     "slug": "clothing-26",
-    "price": 12800,
+    "price": 6000,
     "currency": "NGN",
     "image": "/data/images/C26_1.jpg",
     "images": [
       "/data/images/C26_1.jpg",
       "/data/images/C26_2.jpg"
     ],
-    "description": "Premium clothing collection item 26. Comfortable and stylish wear for everyday occasions.",
+    "description": "Premium clothing collection for everyday occasions.",
     "category": "clothings",
     "featured": true,
-    "inventory": 41,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
@@ -590,19 +607,19 @@
   },
   {
     "id": "27",
-    "name": "Clothing Item #27",
+    "name": "Ready Made Pink Based Half Gown",
     "slug": "clothing-27",
-    "price": 13100,
+    "price": 6000,
     "currency": "NGN",
     "image": "/data/images/C27_1.jpg",
     "images": [
       "/data/images/C27_1.jpg",
       "/data/images/C27_2.jpg"
     ],
-    "description": "Premium clothing collection item 27. Comfortable and stylish wear for everyday occasions.",
+    "description": "Premium clothing collection for everyday occasions.",
     "category": "clothings",
-    "featured": false,
-    "inventory": 42,
+    "featured": true,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
@@ -613,18 +630,18 @@
   },
   {
     "id": "28",
-    "name": "Clothing Item #28",
+    "name": "Star Shaped Multicolored Pattern Design Fabric",
     "slug": "clothing-28",
-    "price": 13400,
+    "price": 6000,
     "currency": "NGN",
     "image": "/data/images/C28_1.jpg",
     "images": [
       "/data/images/C28_1.jpg"
     ],
-    "description": "Premium clothing collection item 28. Comfortable and stylish wear for everyday occasions.",
+    "description": "Premium clothing collection for everyday occasions.",
     "category": "clothings",
-    "featured": false,
-    "inventory": 43,
+    "featured": true,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
@@ -635,18 +652,18 @@
   },
   {
     "id": "29",
-    "name": "Clothing Item #29",
+    "name": "Leaf Collection African Design Fabric",
     "slug": "clothing-29",
-    "price": 13700,
+    "price": 6000,
     "currency": "NGN",
     "image": "/data/images/C29_1.jpg",
     "images": [
       "/data/images/C29_1.jpg"
     ],
-    "description": "Premium clothing collection item 29. Comfortable and stylish wear for everyday occasions.",
+    "description": "Premium clothing collection for everyday occasions.",
     "category": "clothings",
     "featured": true,
-    "inventory": 44,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
@@ -657,18 +674,18 @@
   },
   {
     "id": "30",
-    "name": "Clothing Item #30",
+    "name": "Layered Flowered African Patterned Design Fabric",
     "slug": "clothing-30",
-    "price": 14000,
+    "price": 6000,
     "currency": "NGN",
     "image": "/data/images/C30_1.jpg",
     "images": [
       "/data/images/C30_1.jpg"
     ],
-    "description": "Premium clothing collection item 30. Comfortable and stylish wear for everyday occasions.",
+    "description": "Premium clothing collection for everyday occasions.",
     "category": "clothings",
-    "featured": false,
-    "inventory": 45,
+    "featured": true,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
@@ -679,18 +696,18 @@
   },
   {
     "id": "31",
-    "name": "Clothing Item #31",
+    "name": "Diamond Design Africa Fabric",
     "slug": "clothing-31",
-    "price": 14300,
+    "price": 6000,
     "currency": "NGN",
     "image": "/data/images/C31_1.jpg",
     "images": [
       "/data/images/C31_1.jpg"
     ],
-    "description": "Premium clothing collection item 31. Comfortable and stylish wear for everyday occasions.",
+    "description": "Premium clothing collection for everyday occasions.",
     "category": "clothings",
-    "featured": false,
-    "inventory": 46,
+    "featured": true,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
@@ -701,18 +718,18 @@
   },
   {
     "id": "32",
-    "name": "Clothing Item #32",
+    "name": "White, Red, Green Multishaped African Patterned Fabric.",
     "slug": "clothing-32",
-    "price": 14600,
+    "price": 2500,
     "currency": "NGN",
     "image": "/data/images/C32_1.jpg",
     "images": [
       "/data/images/C32_1.jpg"
     ],
-    "description": "Premium clothing collection item 32. Comfortable and stylish wear for everyday occasions.",
+    "description": "Premium clothing collection for everyday occasions.",
     "category": "clothings",
     "featured": true,
-    "inventory": 47,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
@@ -723,18 +740,18 @@
   },
   {
     "id": "33",
-    "name": "Clothing Item #33",
+    "name": "Multicolor Linen Design Clothing Fabric Sold per Yard",
     "slug": "clothing-33",
-    "price": 14900,
+    "price": 2500,
     "currency": "NGN",
     "image": "/data/images/C33_1.jpg",
     "images": [
       "/data/images/C33_1.jpg"
     ],
-    "description": "Premium clothing collection item 33. Comfortable and stylish wear for everyday occasions.",
+    "description": "Premium clothing collection for everyday occasions.",
     "category": "clothings",
-    "featured": false,
-    "inventory": 48,
+    "featured": true,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
@@ -745,18 +762,18 @@
   },
   {
     "id": "34",
-    "name": "Clothing Item #34",
+    "name": "Two Pattern Mixed Linen",
     "slug": "clothing-34",
-    "price": 15200,
+    "price": 6000,
     "currency": "NGN",
     "image": "/data/images/C34_1.jpg",
     "images": [
       "/data/images/C34_1.jpg"
     ],
-    "description": "Premium clothing collection item 34. Comfortable and stylish wear for everyday occasions.",
+    "description": "Premium clothing collection for everyday occasions.",
     "category": "clothings",
-    "featured": false,
-    "inventory": 49,
+    "featured": true,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
@@ -767,18 +784,18 @@
   },
   {
     "id": "35",
-    "name": "Clothing Item #35",
+    "name": "Reddish Flowered Pattern Linen",
     "slug": "clothing-35",
-    "price": 15500,
+    "price": 6000,
     "currency": "NGN",
     "image": "/data/images/C35_1.jpg",
     "images": [
       "/data/images/C35_1.jpg"
     ],
-    "description": "Premium clothing collection item 35. Comfortable and stylish wear for everyday occasions.",
+    "description": "Superior Quality clothing collection for everyday occasions.",
     "category": "clothings",
     "featured": true,
-    "inventory": 50,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
@@ -789,18 +806,18 @@
   },
   {
     "id": "36",
-    "name": "Clothing Item #36",
+    "name": "Multicolor White Based Pattern Linen Sold per Yard",
     "slug": "clothing-36",
-    "price": 15800,
+    "price": 2500,
     "currency": "NGN",
     "image": "/data/images/C36_1.jpg",
     "images": [
       "/data/images/C36_1.jpg"
     ],
-    "description": "Premium clothing collection item 36. Comfortable and stylish wear for everyday occasions.",
+    "description": "Premium clothing collection for everyday occasions.",
     "category": "clothings",
-    "featured": false,
-    "inventory": 51,
+    "featured": true,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
@@ -811,18 +828,18 @@
   },
   {
     "id": "37",
-    "name": "Clothing Item #37",
+    "name": "Blue Lace Lovely Flowered Based Design Sold per Yard",
     "slug": "clothing-37",
-    "price": 16100,
+    "price": 4000,
     "currency": "NGN",
     "image": "/data/images/C37_1.jpg",
     "images": [
       "/data/images/C37_1.jpg"
     ],
-    "description": "Premium clothing collection item 37. Comfortable and stylish wear for everyday occasions.",
+    "description": "Premium clothing collection for everyday occasions.",
     "category": "clothings",
-    "featured": false,
-    "inventory": 52,
+    "featured": true,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
@@ -833,19 +850,19 @@
   },
   {
     "id": "38",
-    "name": "Clothing Item #38",
+    "name": "Pink Based Lace",
     "slug": "clothing-38",
-    "price": 16400,
+    "price": 45000,
     "currency": "NGN",
     "image": "/data/images/C38_1.jpg",
     "images": [
       "/data/images/C38_1.jpg",
       "/data/images/C38_2.jpg"
     ],
-    "description": "Premium clothing collection item 38. Comfortable and stylish wear for everyday occasions.",
+    "description": "Premium clothing collection for special occasions.",
     "category": "clothings",
     "featured": true,
-    "inventory": 53,
+    "inventory": 1,
     "tags": [
       "clothing",
       "comfortable",
@@ -856,18 +873,18 @@
   },
   {
     "id": "39",
-    "name": "Clothing Item #39",
+    "name": "Green Based Flowered Lace Sold per Yard",
     "slug": "clothing-39",
-    "price": 16700,
+    "price": 4000,
     "currency": "NGN",
     "image": "/data/images/C39_1.jpg",
     "images": [
       "/data/images/C39_1.jpg"
     ],
-    "description": "Premium clothing collection item 39. Comfortable and stylish wear for everyday occasions.",
+    "description": "Premium clothing collection for Special occasions.",
     "category": "clothings",
-    "featured": false,
-    "inventory": 54,
+    "featured": true,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
@@ -878,19 +895,19 @@
   },
   {
     "id": "40",
-    "name": "Clothing Item #40",
+    "name": "Brown Based Flowered Design Sold per Yard",
     "slug": "clothing-40",
-    "price": 17000,
+    "price": 4000,
     "currency": "NGN",
     "image": "/data/images/C40_1.jpg",
     "images": [
       "/data/images/C40_1.jpg",
       "/data/images/C40_2.jpg"
     ],
-    "description": "Premium clothing collection item 40. Comfortable and stylish wear for everyday occasions.",
+    "description": "Premium clothing collection for Special occasions.",
     "category": "clothings",
-    "featured": false,
-    "inventory": 55,
+    "featured": true,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
@@ -901,18 +918,18 @@
   },
   {
     "id": "41",
-    "name": "Clothing Item #41",
+    "name": "White Lace",
     "slug": "clothing-41",
-    "price": 17300,
+    "price": 25000,
     "currency": "NGN",
     "image": "/data/images/C41_1.jpg",
     "images": [
       "/data/images/C41_1.jpg"
     ],
-    "description": "Premium clothing collection item 41. Comfortable and stylish wear for everyday occasions.",
+    "description": "Premium clothing collection for everyday occasions.",
     "category": "clothings",
     "featured": true,
-    "inventory": 56,
+    "inventory": 10,
     "tags": [
       "clothing",
       "comfortable",
@@ -921,135 +938,32 @@
       "wear"
     ]
   },
-  {
-    "id": "42",
-    "name": "Clothing Item #42",
-    "slug": "clothing-42",
-    "price": 17600,
-    "currency": "NGN",
-    "image": "/data/images/C42_1.jpg",
-    "images": [
-      "/data/images/C42_1.jpg"
-    ],
-    "description": "Premium clothing collection item 42. Comfortable and stylish wear for everyday occasions.",
-    "category": "clothings",
-    "featured": false,
-    "inventory": 57,
-    "tags": [
-      "clothing",
-      "comfortable",
-      "stylish",
-      "quality",
-      "wear"
-    ]
-  },
-  {
-    "id": "43",
-    "name": "Clothing Item #43",
-    "slug": "clothing-43",
-    "price": 17900,
-    "currency": "NGN",
-    "image": "/data/images/C43_1.jpg",
-    "images": [
-      "/data/images/C43_1.jpg"
-    ],
-    "description": "Premium clothing collection item 43. Comfortable and stylish wear for everyday occasions.",
-    "category": "clothings",
-    "featured": false,
-    "inventory": 58,
-    "tags": [
-      "clothing",
-      "comfortable",
-      "stylish",
-      "quality",
-      "wear"
-    ]
-  },
-  {
-    "id": "44",
-    "name": "Clothing Item #44",
-    "slug": "clothing-44",
-    "price": 18200,
-    "currency": "NGN",
-    "image": "/data/images/C44_1.jpg",
-    "images": [
-      "/data/images/C44_1.jpg"
-    ],
-    "description": "Premium clothing collection item 44. Comfortable and stylish wear for everyday occasions.",
-    "category": "clothings",
-    "featured": true,
-    "inventory": 59,
-    "tags": [
-      "clothing",
-      "comfortable",
-      "stylish",
-      "quality",
-      "wear"
-    ]
-  },
-  {
-    "id": "45",
-    "name": "Clothing Item #45",
-    "slug": "clothing-45",
-    "price": 18500,
-    "currency": "NGN",
-    "image": "/data/images/C45_1.jpg",
-    "images": [
-      "/data/images/C45_1.jpg"
-    ],
-    "description": "Premium clothing collection item 45. Comfortable and stylish wear for everyday occasions.",
-    "category": "clothings",
-    "featured": false,
-    "inventory": 60,
-    "tags": [
-      "clothing",
-      "comfortable",
-      "stylish",
-      "quality",
-      "wear"
-    ]
-  },
-  {
-    "id": "46",
-    "name": "Clothing Item #46",
-    "slug": "clothing-46",
-    "price": 18800,
-    "currency": "NGN",
-    "image": "/data/images/C46_1.jpg",
-    "images": [
-      "/data/images/C46_1.jpg"
-    ],
-    "description": "Premium clothing collection item 46. Comfortable and stylish wear for everyday occasions.",
-    "category": "clothings",
-    "featured": false,
-    "inventory": 61,
-    "tags": [
-      "clothing",
-      "comfortable",
-      "stylish",
-      "quality",
-      "wear"
-    ]
-  },
+  
   {
     "id": "47",
-    "name": "Jewelry Item #1",
-    "slug": "jewelry-1",
-    "price": 15000,
-    "currency": "NGN",
-    "image": "/data/images/J1_1.jpg",
-    "images": [
-      "/data/images/J1_1.jpg",
-      "/data/images/J1_2.jpg",
-      "/data/images/J1_3.jpg",
-      "/data/images/J1_4.jpg",
-      "/data/images/J1_5.jpg",
-      "/data/images/J1_6.jpg"
+    "name": "Jewelry Set",
+    "slug": "jewelry-2",
+"price": 1000,
+    "setOptions": [
+      { "id": "Set 1", "name": "Set 1", "price": 1000 },
+      { "id": "Set 2", "name": "Set 2", "price": 1800 },
+      { "id": "Set 3", "name": "Set 3", "price": 2400 },
+      { "id": "Set 4", "name": "Set 4", "price": 3500 }
     ],
-    "description": "Elegant jewelry collection item. Beautiful and timeless pieces for special occasions.",
+    "currency": "NGN",
+    "image": "/data/images/J2_1.jpg",
+    "images": [
+      "/data/images/J2_1.jpg",
+      "/data/images/J2_2.jpg",
+      "/data/images/J2_3.jpg",
+      "/data/images/J2_4.jpg",
+      "/data/images/J2_5.jpg",
+      "/data/images/J2_6.jpg"
+    ],
+    "description": "Womens' Jewelry Set Featuring Elegant And Easy Heart-Shaped Faux Pearl C-Shaped Large Hoop Earrings, Rings, Necklaces, And Bracelets - Suitable for Everyday Wear for Women All Year Round. Prices range Set 1- 1000, Set 2- 1800 Set 3- 2400, Set 4- 3500.",
     "category": "jewelries",
-    "featured": false,
-    "inventory": 16,
+    "featured": true,
+    "inventory": 54,
     "tags": [
       "clothing",
       "comfortable",
@@ -1060,21 +974,23 @@
   },
   {
     "id": "48",
-    "name": "Jewelry Item #2",
-    "slug": "jewelry-2",
+    "name": "Elegant hoop Earrings",
+    "slug": "jewelry-3",
     "price": 15000,
     "currency": "NGN",
-    "image": "/data/images/J2_1.jpg",
+    "image": "/data/images/J3_1.jpg",
     "images": [
-      "/data/images/J2_1.jpg",
-      "/data/images/J2_2.jpg",
-      "/data/images/J2_3.jpg",
-      "/data/images/J2_4.jpg"
+      "/data/images/J3_1.jpg",
+      "/data/images/J3_2.jpg",
+      "/data/images/J3_3.jpg",
+      "/data/images/J3_4.jpg",
+      "/data/images/J3_5.jpg",
+      "/data/images/J3_6.jpg"
     ],
-    "description": "Elegant jewelry collection item. Beautiful and timeless pieces for special occasions.",
+    "description": "Elegant hoop earring sets, flower soft ceramic Imitation Pearl flower earring set, rhinestone Artificial pearll earring set, holiday date jewelry gift daily matching 6 pairs of earrings, 6 colors",
     "category": "jewelries",
-    "featured": false,
-    "inventory": 16,
+    "featured": true,
+    "inventory": 6,
     "tags": [
       "clothing",
       "comfortable",
@@ -1085,35 +1001,9 @@
   },
   {
     "id": "49",
-    "name": "Jewelry Item #3",
-    "slug": "jewelry-3",
-    "price": 15000,
-    "currency": "NGN",
-    "image": "/data/images/J3_1.jpg",
-    "images": [
-      "/data/images/J3_1.jpg",
-      "/data/images/J3_2.jpg",
-      "/data/images/J3_3.jpg",
-      "/data/images/J3_4.jpg",
-      "/data/images/J3_5.jpg"
-    ],
-    "description": "Elegant jewelry collection item. Beautiful and timeless pieces for special occasions.",
-    "category": "jewelries",
-    "featured": false,
-    "inventory": 16,
-    "tags": [
-      "clothing",
-      "comfortable",
-      "stylish",
-      "quality",
-      "wear"
-    ]
-  },
-  {
-    "id": "50",
-    "name": "Jewelry Item #4",
+    "name": "Graffiti Pattern Multifunctional Comfortable and Breathable Ankle Socks",
     "slug": "jewelry-4",
-    "price": 15000,
+    "price": 1500,
     "currency": "NGN",
     "image": "/data/images/J4_1.jpg",
     "images": [
@@ -1123,10 +1013,10 @@
       "/data/images/J4_4.jpg",
       "/data/images/J4_5.jpg"
     ],
-    "description": "Elegant jewelry collection item. Beautiful and timeless pieces for special occasions.",
+    "description": "Pairs of Randomly Wholesale Cartoon Graffiti Pattern Multifunctional Comfortable and Breathable Ankle Socks, with A Variety of Colors and Styles for Men and Women's Daily Wear Needs, Cross-border Stocking Is Super Cost-",
     "category": "jewelries",
-    "featured": false,
-    "inventory": 16,
+    "featured": true,
+    "inventory": 50,
     "tags": [
       "clothing",
       "comfortable",
@@ -1135,11 +1025,12 @@
       "wear"
     ]
   },
+  
   {
     "id": "51",
-    "name": "Jewelry Item #5",
+    "name": "Summer Handbag with a Unique Design",
     "slug": "jewelry-5",
-    "price": 15000,
+    "price": 1500,
     "currency": "NGN",
     "image": "/data/images/J5_1.jpg",
     "images": [
@@ -1147,12 +1038,13 @@
       "/data/images/J5_2.jpg",
       "/data/images/J5_3.jpg",
       "/data/images/J5_4.jpg",
-      "/data/images/J5_5.jpg"
+      "/data/images/J5_5.jpg",
+      "/data/images/J5_6.jpg"
     ],
-    "description": "Elegant jewelry collection item. Beautiful and timeless pieces for special occasions.",
+    "description": "Women'S Summer Handbag with a Unique Design, Trendy New Style, Fashionable And Versatile Crossbody Bag, Chic High-Quality Shoulder Bag, Multi-Piece $set_selectElegant jewelry collection item. Beautiful and timeless pieces for special occasions.",
     "category": "jewelries",
-    "featured": false,
-    "inventory": 16,
+    "featured": true,
+    "inventory": 2,
     "tags": [
       "clothing",
       "comfortable",
@@ -1163,9 +1055,9 @@
   },
   {
     "id": "52",
-    "name": "Jewelry Item #6",
+    "name": "Spring New Women'S Fabric Shoes",
     "slug": "jewelry-6",
-    "price": 15000,
+    "price": 18000,
     "currency": "NGN",
     "image": "/data/images/J6_1.jpg",
     "images": [
@@ -1176,10 +1068,10 @@
       "/data/images/J6_5.jpg",
       "/data/images/J6_6.jpg"
     ],
-    "description": "Elegant jewelry collection item. Beautiful and timeless pieces for special occasions.",
+    "description": "Spring New Women'S Fabric Shoes, Breathable Walking Shoes with Non-Slip Soft Soles for Middle-Aged Mothers.",
     "category": "jewelries",
-    "featured": false,
-    "inventory": 16,
+    "featured": true,
+    "inventory": 1,
     "tags": [
       "clothing",
       "comfortable",
@@ -1190,9 +1082,9 @@
   },
   {
     "id": "53",
-    "name": "Jewelry Item #7",
+    "name": "Fashion Party Date Daily Wear Necklace Ring Bracelet Earrings Jewelry Set",
     "slug": "jewelry-7",
-    "price": 15000,
+    "price": 1500,
     "currency": "NGN",
     "image": "/data/images/J7_1.jpg",
     "images": [
@@ -1201,13 +1093,18 @@
       "/data/images/J7_3.jpg",
       "/data/images/J7_4.jpg",
       "/data/images/J7_5.jpg",
-      "/data/images/J7_6.jpg",
-      "/data/images/J7_8.jpg"
+      "/data/images/J7_6.jpg"
     ],
-    "description": "Elegant jewelry collection item. Beautiful and timeless pieces for special occasions.",
+    "description": "Exaggerated Punk Design Multi-Style Women's Fashion Party Date Daily Wear Necklace Ring Bracelet Earrings Jewelry Set. Prices range Set 1- 1000, Set 2- 1800 Set 3- 2400, Set 4- 3500.",
     "category": "jewelries",
-    "featured": false,
-    "inventory": 16,
+    "featured": true,
+    "inventory": 52,
+    "setOptions": [
+      { "id": "Set 1", "name": "Set 1", "price": 1000 },
+      { "id": "Set 2", "name": "Set 2", "price": 1800 },
+      { "id": "Set 3", "name": "Set 3", "price": 2400 },
+      { "id": "Set 4", "name": "Set 4", "price": 3500 }
+    ],
     "tags": [
       "clothing",
       "comfortable",
@@ -1218,9 +1115,9 @@
   },
   {
     "id": "54",
-    "name": "Jewelry Item #8",
+    "name": "Women's Multi-piece Set Golden Necklace Set",
     "slug": "jewelry-8",
-    "price": 15000,
+    "price": 1500,
     "currency": "NGN",
     "image": "/data/images/J8_1.jpg",
     "images": [
@@ -1231,10 +1128,10 @@
       "/data/images/J8_5.jpg",
       "/data/images/J8_6.jpg"
     ],
-    "description": "Elegant jewelry collection item. Beautiful and timeless pieces for special occasions.",
+    "description": "Creative Fashion Five-pointed Star Synthetic Butterfly Element Women's Multi-piece Set Golden Necklace Set Suitable for Outings Beach Vacation Fashion Jewelry Gifts.",
     "category": "jewelries",
-    "featured": false,
-    "inventory": 16,
+    "featured": true,
+    "inventory": 11,
     "tags": [
       "clothing",
       "comfortable",
@@ -1245,9 +1142,9 @@
   },
   {
     "id": "55",
-    "name": "Jewelry Item #9",
+    "name": "Middle Eastern Style Women's Daily Accessories",
     "slug": "jewelry-9",
-    "price": 15000,
+    "price": 1500,
     "currency": "NGN",
     "image": "/data/images/J9_1.jpg",
     "images": [
@@ -1261,10 +1158,371 @@
       "/data/images/J9_8.jpg",
       "/data/images/J9_9.jpg"
     ],
-    "description": "Elegant jewelry collection item. Beautiful and timeless pieces for special occasions.",
+    "description": "2pcs Earrings + 1pc Necklace Set, Middle Eastern Style Women's Daily Accessories",
     "category": "jewelries",
-    "featured": false,
-    "inventory": 16,
+    "featured": true,
+    "inventory": 4,
+    "tags": [
+      "clothing",
+      "comfortable",
+      "stylish",
+      "quality",
+      "wear"
+    ]
+  },
+    {
+    "id": "56",
+    "name": "Middle Eastern Style Women's Daily Accessories",
+    "slug": "jewelry-11",
+    "price": 1500,
+    "currency": "NGN",
+    "image": "/data/images/J11_1.jpg",
+    "images": [
+      "/data/images/J11_1.jpg",
+      "/data/images/J11_2.jpg",
+      "/data/images/J11_3.jpg",
+      "/data/images/J11_4.jpg",
+      "/data/images/J11_5.jpg",
+      "/data/images/J11_6.jpg"
+    ],
+    "description": "2pcs Earrings + 1pc Necklace Set, Middle Eastern Style Women's Daily Accessories",
+    "category": "jewelries",
+    "featured": true,
+    "inventory": 4,
+    "tags": [
+      "clothing",
+      "comfortable",
+      "stylish",
+      "quality",
+      "wear"
+    ]
+  },
+  {
+    "id": "57",
+    "name": "Uropean and American Fashion. {{Elegant Gorgeous Medieval Modern Style Inlaid Rhinestone Short Necklace Necklace earrings",
+    "slug": "jewelry-12",
+    "price": 1500,
+    "currency": "NGN",
+    "image": "/data/images/J12_1.jpg",
+    "images": [
+      "/data/images/J12_1.jpg",
+      "/data/images/J12_2.jpg",
+      "/data/images/J12_3.jpg",
+      "/data/images/J12_4.jpg",
+      "/data/images/J12_5.jpg",
+      "/data/images/J12_6.jpg",
+      "/data/images/J12_7.jpg",
+      "/data/images/J12_8.jpg"
+    ],
+    "description": "Uropean and American Fashion  Elegant Gorgeous Medieval Modern Style Inlaid Rhinestone Short Necklace Necklace Earring Set Suitable for Women's Daily Holiday Dress Wedding Engagement Vacation Wearing Jewelry Gifts Accessories",
+    "category": "jewelries",
+    "featured": true,
+    "inventory": 4,
+    "tags": [
+      "clothing",
+      "comfortable",
+      "stylish",
+      "quality",
+      "wear"
+    ]
+  },
+   {
+    "id": "58",
+    "name": "Middle Eastern Style Women's Daily Accessories",
+    "slug": "jewelry-13",
+    "price": 1500,
+    "currency": "NGN",
+    "image": "/data/images/J13_1.jpg",
+    "images": [
+      "/data/images/J13_1.jpg",
+      "/data/images/J13_2.jpg",
+      "/data/images/J13_3.jpg",
+      "/data/images/J13_4.jpg",
+      "/data/images/J13_5.jpg",
+      "/data/images/J13_6.jpg"
+    ],
+    "description": "Daily Wear Necklace Ring Bracelet Earrings Jewelry Set",
+    "category": "jewelries",
+    "featured": true,
+    "inventory": 4,
+    "tags": [
+      "clothing",
+      "comfortable",
+      "stylish",
+      "quality",
+      "wear"
+    ]
+  },
+  {
+    "id": "59",
+    "name": "Three Vintage Golden Coin Pendant Necklaces, Perfect for Layering.",
+    "slug": "jewelry-15",
+    "price": 15000,
+    "currency": "NGN",
+    "image": "/data/images/J15_1.jpg",
+    "images": [
+      "/data/images/J15_1.jpg",
+      "/data/images/J15_2.jpg",
+      "/data/images/J15_3.jpg",
+      "/data/images/J15_4.jpg",
+      "/data/images/J15_5.jpg",
+      "/data/images/J15_6.jpg"
+    ],
+    "description": "A Set of Three Vintage Golden Coin Pendant Necklaces, Perfect for Layering, Featuring a Cuban Chain Design, Ideal for Women'S Fashion Additions",
+    "category": "jewelries",
+    "featured": true,
+    "inventory": 4,
+    "tags": [
+      "clothing",
+      "comfortable",
+      "stylish",
+      "quality",
+      "wear"
+    ]
+  },
+  {
+    "id": "60",
+    "name": "Middle Eastern Style Women's Daily Accessories",
+    "slug": "jewelry-16",
+    "price": 18000,
+    "currency": "NGN",
+    "image": "/data/images/J16_1.jpg",
+    "images": [
+      "/data/images/J16_1.jpg",
+      "/data/images/J16_2.jpg",
+      "/data/images/J16_3.jpg",
+      "/data/images/J16_4.jpg",
+      "/data/images/J16_5.jpg",
+      "/data/images/J16_6.jpg"
+    ],
+    "description":"Handwoven and Ceramic Flower Bridal Headband Set, Wavy Hair Alloy Crown with Detailing, High-End Wedding Hair Accessories Special Occasions",
+    "category": "jewelries",
+    "featured": true,
+    "inventory": 4,
+    "tags": [
+      "clothing",
+      "comfortable",
+      "stylish",
+      "quality",
+      "wear"
+    ]
+  },
+    {
+    "id": "61",
+    "name": "Fashionable C-shaped Creative Hollow Leaf Earrings Set",
+    "slug": "jewelry-17",
+    "price": 2000,
+    "currency": "NGN",
+    "image": "/data/images/J17_1.jpg",
+    "images": [
+      "/data/images/J17_1.jpg",
+      "/data/images/J17_2.jpg",
+      "/data/images/J17_3.jpg",
+      "/data/images/J17_4.jpg",
+      "/data/images/J17_5.jpg",
+      "/data/images/J17_6.jpg"
+    ],
+    "description": "Pairs of Fashionable C-shaped Creative Hollow Leaf Earrings Set without Cardboard to my love and best friend/bestie firstde Gift Set",
+    "category": "jewelries",
+    "featured": true,
+    "inventory": 4,
+    "tags": [
+      "clothing",
+      "comfortable",
+      "stylish",
+      "quality",
+      "wear"
+    ]
+  },
+  
+    {
+    "id": "61",
+    "name": "Minimalist C-Shaped Teardrop Earrings Set.",
+    "slug": "jewelry-18",
+    "price": 1500,
+    "currency": "NGN",
+    "image": "/data/images/J18_1.jpg",
+    "images": [
+      "/data/images/J18_1.jpg",
+      "/data/images/J18_2.jpg",
+      "/data/images/J18_3.jpg",
+      "/data/images/J18_4.jpg",
+      "/data/images/J18_5.jpg",
+      "/data/images/J18_6.jpg"
+    ],
+    "description": "Resin Minimalist C-Shaped Teardrop Earrings Set, Plastic Material, Crafted with Some Roughness",
+    "category": "jewelries",
+    "featured": true,
+    "inventory": 4,
+    "tags": [
+      "clothing",
+      "comfortable",
+      "stylish",
+      "quality",
+      "wear"
+    ]
+  },
+  
+    {
+    "id": "62",
+    "name": "Fashionable And Elegant Heart-Shaped Butterfly Pendant Earrings",
+    "slug": "jewelry-19",
+    "price": 1500,
+    "currency": "NGN",
+    "image": "/data/images/J19_1.jpg",
+    "images": [
+      "/data/images/J19_1.jpg",
+      "/data/images/J19_2.jpg",
+      "/data/images/J19_3.jpg",
+      "/data/images/J19_4.jpg",
+      "/data/images/J19_5.jpg",
+      "/data/images/J19_6.jpg"
+    ],
+    "description": "A Set of Fashionable And Elegant Heart-Shaped Butterfly Pendant Earrings, Necklaces, Bracelets, Bangles, Ear Studs, And Rings, Perfect for Daily Wear Or Parties, Ideal As a Gift, Stylish Jewelry in Golden",
+    "category": "jewelries",
+    "featured": true,
+    "inventory": 4,
+    "tags": [
+      "clothing",
+      "comfortable",
+      "stylish",
+      "quality",
+      "wear"
+    ]
+  },
+  
+  
+    {
+    "id": "63",
+    "name": "European And American High-End Fashion Luxury Business Bright Water Drop Earrings,",
+    "slug": "jewelry-20",
+    "price": 17000,
+    "currency": "NGN",
+    "image": "/data/images/J20_1.jpg",
+    "images": [
+      "/data/images/J20_1.jpg",
+      "/data/images/J20_2.jpg",
+      "/data/images/J20_3.jpg",
+      "/data/images/J20_4.jpg",
+      "/data/images/J20_5.jpg",
+      "/data/images/J20_6.jpg"
+    ],
+    "description": "European And American High-End Fashion Luxury Business Bright Water Drop Earrings, Bracelets, Necklaces And Rings Set, Party Accessories⁰",
+    "category": "jewelries",
+    "featured": true,
+    "inventory": 4,
+    "tags": [
+      "clothing",
+      "comfortable",
+      "stylish",
+      "quality",
+      "wear"
+    ]
+  },
+  
+  
+    {
+    "id": "64",
+    "name": "Classic Versatile Gift for Women, Perfect for Daily Wear or Gifting",
+    "slug": "jewelry-21",
+    "price": 1000,
+    "currency": "NGN",
+    "image": "/data/images/J21_1.jpg",
+    "images": [
+      "/data/images/J21_1.jpg",
+      "/data/images/J21_2.jpg",
+      "/data/images/J21_3.jpg",
+      "/data/images/J21_4.jpg",
+      "/data/images/J21_5.jpg",
+      "/data/images/J21_6.jpg"
+    ],
+    "description": " Elegant Fashion Analog Square Dial Women's Watch, Classic Versatile Gift for Women, Perfect for Daily Wear or Gifting, Holiday Selection, Suitable for All Ladies",
+    "category": "jewelries",
+    "featured": true,
+    "inventory": 4,
+    "tags": [
+      "clothing",
+      "comfortable",
+      "stylish",
+      "quality",
+      "wear"
+    ]
+  },
+  
+    {
+    "id": "65",
+    "name": "Middle Eastern Style Women's Daily Accessories",
+    "slug": "jewelry-22",
+    "price": 10000,
+    "currency": "NGN",
+    "image": "/data/images/J22_1.jpg",
+    "images": [
+      "/data/images/J22_1.jpg",
+      "/data/images/J22_2.jpg",
+      "/data/images/J22_3.jpg",
+      "/data/images/J22_4.jpg",
+      "/data/images/J22_5.jpg",
+      "/data/images/J22_6.jpg"
+    ],
+    "description": "Elegant Wristwatch Suitable for Christmas, Birthday, Anniversary Gifts - Quartz Round with Alloy &, Elegant Ladies Timepieces for Special Occasions (6 Styles)",
+    "category": "jewelries",
+    "featured": true,
+    "inventory": 4,
+    "tags": [
+      "clothing",
+      "comfortable",
+      "stylish",
+      "quality",
+      "wear"
+    ]
+  },
+  
+    {
+    "id": "66",
+    "name": "Jewelry Set with Sparkling Cubic Synthetic Cubic Zirconiaia - Retro Green Stone",
+    "slug": "jewelry-23",
+    "price": 42000,
+    "currency": "NGN",
+    "image": "/data/images/J23_1.jpg",
+    "images": [
+      "/data/images/J23_1.jpg",
+      "/data/images/J23_2.jpg",
+      "/data/images/J23_3.jpg",
+      "/data/images/J23_4.jpg",
+      "/data/images/J23_5.jpg",
+      "/data/images/J23_6.jpg"
+    ],
+    "description": "Jewelry Set with Sparkling Cubic Synthetic Cubic Zirconiaia - Retro Green Stone, Necklace, Bracelet, Ring & Earrings - Perfect for Valentine's Day, Weddings & Gifts, Vintage Jewelry, Best for Christmas Gift, for Teenager",
+    "category": "jewelries",
+    "featured": true,
+    "inventory": 4,
+    "tags": [
+      "clothing",
+      "comfortable",
+      "stylish",
+      "quality",
+      "wear"
+    ]
+  },
+    {
+    "id": "67",
+    "name": "14K Gold Plated Classic Punk Style,",
+    "slug": "jewelry-24",
+    "price": 10000,
+    "currency": "NGN",
+    "image": "/data/images/J24_1.jpg",
+    "images": [
+      "/data/images/J24_1.jpg",
+      "/data/images/J24_2.jpg",
+      "/data/images/J24_3.jpg",
+      "/data/images/J24_4.jpg",
+      "/data/images/J24_5.jpg",
+      "/data/images/J24_6.jpg"
+    ],
+    "description": "14K Gold Plated Classic Punk Style, Iron Metal, for Daily and Party Wear, Suitable for All Seasons",
+    "category": "jewelries",
+    "featured": true,
+    "inventory": 4,
     "tags": [
       "clothing",
       "comfortable",
@@ -1274,3 +1532,4 @@
     ]
   }
 ]
+

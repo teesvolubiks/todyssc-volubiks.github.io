@@ -1,0 +1,25 @@
+<parameter name="content"># TODO: Price Set Selection Implementation
+
+## Step 1: Update products.json with setOptions
+- Add `setOptions` array with prices for products that have `set_select`
+- Products: id 47 (Jewelry Set), id 53 (Fashion Party Date Daily Wear Necklace...)
+
+## Step 2: Update ProductCard.jsx
+- Add set selector dropdown for products with `setOptions`
+- Display price based on selected set
+- Pass selected set info when adding to cart
+
+## Step 3: Update ProductModal.jsx
+- Add set selection UI (radio buttons or dropdown)
+- Update price display based on selection
+- Pass selected set when adding to cart
+
+## Step 4: Update ProductPage.jsx
+- Add set selection UI
+- Update price display dynamically
+- Handle cart addition with selected set
+
+## Step 5: Test the implementation
+- Verify set selection works on all components
+- Verify cart stores selected set info
+</parameter>

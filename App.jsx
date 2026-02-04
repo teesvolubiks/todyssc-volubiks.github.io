@@ -8,6 +8,7 @@ import Checkout from './Checkout';
 import Payment from './Payment';
 import ProductPage from './components/ProductPage';
 import Dashboard from './components/dashboard/Dashboard';
+import SocialMediaPoster from './components/SocialMediaPoster';
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/payment" element={<Payment />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/poster" element={<SocialMediaPoster />} />
           </Routes>
         </main>
       </div>

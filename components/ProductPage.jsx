@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet-async';
 export default function ProductPage() {
   const { id } = useParams();
   const [products, setProducts] = useState([]);
+  const [selectedSet, setSelectedSet] = useState(null);
 
   React.useEffect(() => {
     const fetchProducts = async () => {
@@ -32,6 +33,25 @@ export default function ProductPage() {
 
   const images = (product.images && product.images.length) ? product.images : (product.image ? [product.image] : []);
   const [active, setActive] = useState(0);
+
+  // Get current price based on selected set
+  const currentPrice = selectedSet !== null && product.setOptions
+    ? product.setOptions.find(opt => opt.id === selectedSet)?.price || product.price
+    : product.price;
+
+  const handleAddToCart = () => {
+    const productToAdd = selectedSet && product.setOptions
+      ? { ...product, price: currentPrice, selectedSet }
+      : { ...product, selectedSet };
+    try {
+      const cart = JSON.parse(localStorage.getItem('rv_cart') || '[]');
+      cart.push(productToAdd);
+      localStorage.setItem('rv_cart', JSON.stringify(cart));
+      window.dispatchEvent(new Event('storage'));
+    } catch (e) {
+      // ignore
+    }
+  };
 
   const title = `${product.name} - Volubiks Jewelry`;
   const description = product.description || `Discover ${product.name}, a beautiful piece of jewelry from Volubiks. Price: ₦${product.price.toFixed(2)}.`;
@@ -99,20 +119,27 @@ export default function ProductPage() {
           </div>
           <div className="info">
             <h2>{product.name}</h2>
-            <p><strong>₦{product.price.toFixed(2)}</strong></p>
+            <p><strong>₦{currentPrice.toFixed(2)}</strong></p>
+            {product.setOptions && (
+              <div className="set-selector">
+                <select
+                  value={selectedSet || ''}
+                  onChange={(e) => setSelectedSet(e.target.value || null)}
+                  className="set-select"
+                >
+                  <option value="">Select Set</option>
+                  {product.setOptions.map(opt => (
+                    <option key={opt.id} value={opt.id}>
+                      {opt.name} - ₦{opt.price.toFixed(2)}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
             <p>{product.description}</p>
             <button
               className="button add-btn"
-              onClick={() => {
-                try {
-                  const cart = JSON.parse(localStorage.getItem('rv_cart') || '[]');
-                  cart.push(product);
-                  localStorage.setItem('rv_cart', JSON.stringify(cart));
-                  window.dispatchEvent(new Event('storage'));
-                } catch (e) {
-                  // ignore
-                }
-              }}
+              onClick={handleAddToCart}
             >
               Add to cart
             </button>
