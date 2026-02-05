@@ -1,16 +1,22 @@
 import React from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useNavigate } from 'react-router-dom';
 import ProductCard from './components/ProductCard';
 import ProductModal from './components/ProductModal';
 import { Helmet } from 'react-helmet-async';
 
 export default function Shop() {
   const [searchParams] = useSearchParams();
-  const q = (searchParams.get('q') || '').trim().toLowerCase().replace(/[<>\"'&]/g, '');
-  const category = searchParams.get('category') || '';
-  console.log('category:', category);
+  const navigate = useNavigate();
+  // Keep original query for display, sanitize only for search logic
+  const qOriginal = (searchParams.get('q') || '').trim();
+  const q = qOriginal.toLowerCase();
+  const categoryParam = searchParams.get('category') || '';
+  // Use lowercase category for comparison but preserve original for display
+  const category = categoryParam.toLowerCase();
+  
   const [products, setProducts] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState(null);
   const [preview, setPreview] = React.useState(null);
 
   // Placeholder image for missing images
@@ -19,9 +25,12 @@ export default function Shop() {
   // Helper to check if URL exists
   async function urlExists(url) {
     try {
-      const res = await fetch(url, { method: 'HEAD' });
+      // Use absolute URL by prepending window.location.origin
+      const absoluteUrl = url.startsWith('/') ? window.location.origin + url : url;
+      const res = await fetch(absoluteUrl, { method: 'HEAD', mode: 'cors' });
       return res && res.ok;
     } catch (e) {
+      console.warn('urlExists failed for:', url, e);
       return false;
     }
   }
@@ -29,9 +38,10 @@ export default function Shop() {
   // Function to expand image sets (e.g., C1_1, C1_2, C1_3, etc.)
   async function expandImageSets(product) {
     const imgs = Array.isArray(product.images) ? [...product.images] : [];
+    const primaryImage = product.image || '';
     
     // If primary image exists and looks like '.../C1_1.jpg' or '.../name_1.jpg'
-    const match = (product.image || imgs[0] || '').match(/(\/data\/images\/)([A-Za-z0-9\-]+?)_(\d+)\.(jpg|jpeg|png|webp)$/i);
+    const match = primaryImage.match(/(\/data\/images\/)([A-Za-z0-9\-]+?)_(\d+)\.(jpg|jpeg|png|webp)$/i);
     if (match) {
       const prefix = match[1];
       const base = match[2];
@@ -56,26 +66,37 @@ export default function Shop() {
   React.useEffect(() => {
     const fetchProducts = async () => {
       setLoading(true);
+      setError(null);
       try {
+        console.log('Fetching products from /data/products.json...');
         const response = await fetch('/data/products.json?t=' + Date.now());
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
-        console.log('Fetched products from JSON:', data);
+        console.log('Fetched products count:', Array.isArray(data) ? data.length : 0);
+        
+        if (!Array.isArray(data)) {
+          console.error('Products data is not an array:', data);
+          throw new Error('Products data is not an array');
+        }
         
         // Normalize products and expand image sets
         const normalizedBase = data.map(p => ({ 
           ...p, 
           images: p.images || [], 
-          image: p.image || '' 
+          image: p.image || '',
+          name: p.name || 'Unnamed Product',
+          category: p.category || 'uncategorized'
         }));
 
+        console.log('Processing', normalizedBase.length, 'products...');
         const expanded = await Promise.all(normalizedBase.map(expandImageSets));
-        console.log('Normalized products:', expanded.length);
+        console.log('Processed products:', expanded.length);
         setProducts(expanded);
       } catch (error) {
         console.error('Failed to fetch products from JSON:', error);
+        setError(error.message);
       } finally {
         setLoading(false);
       }
@@ -101,7 +122,7 @@ export default function Shop() {
 
   function scoreForProduct(p, query) {
     if (!query) return 0;
-    const name = p.name.toLowerCase();
+    const name = (p.name || '').toLowerCase();
     const id = (p.id || '').toLowerCase();
     let score = 0;
 
@@ -125,17 +146,33 @@ export default function Shop() {
   }
 
   let results = products;
+  
+  // Filter by category (case-insensitive)
   if (category) {
-    results = results.filter(p => p.category === category);
+    const categoryLower = category.toLowerCase();
+    results = results.filter(p => (p.category || '').toLowerCase() === categoryLower);
+    console.log('Filtered by category:', category, '- Found:', results.length);
   }
+  
+  // Filter by search query
   if (q) {
     const scored = results.map((p) => ({ p, score: scoreForProduct(p, q) }))
       .filter(item => item.score > 0)
       .sort((a, b) => b.score - a.score)
       .map(item => item.p);
     // If no scored results, fall back to substring search (so user still sees something)
-    results = scored.length ? scored : results.filter(p => p.name.toLowerCase().includes(q) || (p.id || '').toLowerCase().includes(q));
+    results = scored.length ? scored : results.filter(p => 
+      (p.name || '').toLowerCase().includes(q) || 
+      (p.id || '').toLowerCase().includes(q) ||
+      (p.description || '').toLowerCase().includes(q)
+    );
+    console.log('Filtered by search:', q, '- Found:', results.length);
   }
+
+  // Clear all filters
+  const clearFilters = () => {
+    navigate('/shop');
+  };
 
   const onAdd = (product) => {
     try {
@@ -176,8 +213,28 @@ export default function Shop() {
               ))}
             </div>
           </div>
+        ) : error ? (
+          <div className="error-state" style={{ textAlign: 'center', padding: '40px 20px' }}>
+            <p style={{ color: '#dc2626', marginBottom: '16px' }}>Error loading products: {error}</p>
+            <button 
+              className="button primary" 
+              onClick={() => window.location.reload()}
+            >
+              Retry
+            </button>
+          </div>
         ) : results.length === 0 ? (
-          <p>No products found. Try a different search.</p>
+          <div className="empty-state" style={{ textAlign: 'center', padding: '40px 20px' }}>
+            <p style={{ marginBottom: '16px' }}>No products found.</p>
+            {(q || category) && (
+              <button 
+                className="button primary" 
+                onClick={clearFilters}
+              >
+                Clear Filters
+              </button>
+            )}
+          </div>
         ) : (
           <div className="product-grid dense">
             {results.map((p) => (

@@ -14,7 +14,7 @@ export default function App() {
   return (
     <HelmetProvider>
       <Helmet>
-        <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://js.paystack.co https://api.paystack.co; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://ipapi.co https://api.exchangerate-api.com https://js.paystack.co https://api.paystack.co;" />
+        <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://js.paystack.com https://api.paystack.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://ipapi.co https://api.exchangerate-api.com https://js.paystack.com https://api.paystack.com;" />
         <meta httpEquiv="X-Frame-Options" content="DENY" />
         <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
