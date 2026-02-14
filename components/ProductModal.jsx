@@ -13,7 +13,7 @@ export default function ProductModal({ product, open, onClose, onAdd }) {
 
   // Get images first before any function uses them; resolve base for assets
   const base = import.meta.env.BASE_URL || '/';
-  const imagesRaw = (product.images && product.images.length) ? product.images.filter(img => !img.startsWith('data:image')) : (product.image ? [product.image] : []);
+  const imagesRaw = (product.images && product.images.length) ? product.images.filter(img => !img.startsWith('data:image')).slice(0, 2) : (product.image ? [product.image] : []);
   const images = imagesRaw.map(img => (img && img.startsWith('/') ? base + img.slice(1) : img));
 
   function closeWithAnim() {
@@ -105,33 +105,7 @@ export default function ProductModal({ product, open, onClose, onAdd }) {
     closeWithAnim();
   };
 
-  // Determine grid layout based on number of images
-  const numImages = images.length;
-  let rows, cols;
-  if (numImages === 1) {
-    rows = 1;
-    cols = 1;
-  } else if (numImages === 2) {
-    rows = 1;
-    cols = 2;
-  } else if (numImages === 3) {
-    rows = 1;
-    cols = 3;
-  } else if (numImages === 4) {
-    rows = 2;
-    cols = 2;
-  } else if (numImages <= 6) {
-    rows = 2;
-    cols = 3;
-  } else if (numImages <= 9) {
-    rows = 3;
-    cols = 3;
-  } else {
-    rows = 3;
-    cols = 3;
-  }
 
-  const gridClass = `image-grid grid-${rows}x${cols}`;
 
   useEffect(() => {
     function onKey(e) {
@@ -149,8 +123,8 @@ export default function ProductModal({ product, open, onClose, onAdd }) {
         <div className="modal-body">
           <div className="modal-gallery">
             {images.length > 0 ? (
-              <div className={gridClass}>
-                {images.slice(0, rows * cols).map((img, index) => (
+              <div className="modal-image-scroll">
+                {images.map((img, index) => (
                   <img
                     key={index}
                     src={img}

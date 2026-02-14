@@ -9,7 +9,7 @@ export default function ProductCard({ product, onAdd, onPreview }) {
   const rawImages = (product.images && product.images.length) ? product.images : (product.image ? [product.image] : []);
   const base = import.meta.env.BASE_URL || '/';
   const resolve = (p) => (p && p.startsWith('/') ? base + p.slice(1) : p);
-  const images = rawImages.map(resolve);
+  const images = rawImages.slice(0, 2).map(resolve);
 
   // Get current price based on selected set
   const currentPrice = selectedSet !== null && product.setOptions
