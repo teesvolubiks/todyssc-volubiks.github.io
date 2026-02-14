@@ -12,7 +12,8 @@ export default function ProductPage() {
     const fetchProducts = async () => {
       setLoading(true);
       try {
-        const response = await fetch('/data/products.json?t=' + Date.now(), { cache: 'no-cache' });
+        const base = import.meta.env.BASE_URL || '/';
+        const response = await fetch(`${base}data/products.json?t=${Date.now()}`, { cache: 'no-cache' });
         const data = await response.json();
         setProducts(data);
       } catch (error) {

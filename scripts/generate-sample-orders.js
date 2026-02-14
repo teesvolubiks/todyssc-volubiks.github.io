@@ -9,7 +9,7 @@ const sampleOrders = [
     id: '1735689600000',
     date: '2025-01-01T10:00:00.000Z',
     status: 'completed',
-    paymentMethod: 'paystack',
+    paymentMethod: 'opay',
     paymentStatus: 'paid',
     transactionId: 'TXN-001',
     shipping: {

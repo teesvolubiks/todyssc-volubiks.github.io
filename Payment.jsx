@@ -15,6 +15,7 @@ export default function Payment() {
   const { state } = useLocation();
   const [processing, setProcessing] = useState(false);
   const [paid, setPaid] = useState(false);
+  const [confirmationPending, setConfirmationPending] = useState(false);
 
   // Fallback: if state not provided, compute totals from current cart
   const [summary, setSummary] = useState(() => state || { subtotal: 0, vat: 0, total: 0 });
@@ -62,17 +63,21 @@ export default function Payment() {
     if (saveShipping) {
       try { localStorage.setItem('rv_shipping', JSON.stringify(shipping)); } catch {}
     }
+    setConfirmationPending(true);
+  };
+
+  const onConfirmPaymentSent = () => {
     setProcessing(true);
     setTimeout(() => {
-      // Save order data for dashboard
+      // Save order data for dashboard after confirmation
       const cart = loadCart();
       const orderData = {
         id: Date.now().toString(),
         date: new Date().toISOString(),
         status: 'completed',
-        paymentMethod: 'demo',
+        paymentMethod: 'opay',
         paymentStatus: 'paid',
-        transactionId: 'DEMO-' + Date.now(),
+        transactionId: 'OPAY-' + Date.now(),
         shipping,
         items: cart,
         subtotal: summary.subtotal,
@@ -87,6 +92,7 @@ export default function Payment() {
       // Clear cart and show success
       localStorage.removeItem('rv_cart');
       window.dispatchEvent(new Event('storage'));
+      setConfirmationPending(false);
       setPaid(true);
       setProcessing(false);
     }, 1000);
@@ -95,23 +101,6 @@ export default function Payment() {
   // Demo helpers to read config saved via AdminPayments
   const getConfig = () => {
     try { return JSON.parse(localStorage.getItem('volubiks_payments_config') || 'null'); } catch { return null; }
-  };
-
-  const payWithPaystack = async () => {
-    const cfg = getConfig();
-    if (!cfg || !cfg.paystackWebhook) {
-      alert('Paystack is not configured. See PAYMENT_INTEGRATION.md and add your webhook in the Payment Configuration section on this page.');
-      return;
-    }
-    try {
-      const res = await fetch('/api/paystack/initialize', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ summary }) });
-      if (!res.ok) throw new Error('no-backend');
-      const data = await res.json();
-      if (data && data.authorization_url) window.location.href = data.authorization_url;
-      else alert('Unexpected response from backend.');
-    } catch (e) {
-      alert('No server-side Paystack integration detected. See PAYMENT_INTEGRATION.md for setup steps.');
-    }
   };
 
   const payWithOpay = async () => {
@@ -131,17 +120,54 @@ export default function Payment() {
     }
   };
 
+  if (confirmationPending) {
+    return (
+      <>
+        <Helmet>
+          <title>Confirm Payment - Volubiks Jewelry</title>
+          <meta name="robots" content="noindex, nofollow" />
+        </Helmet>
+        <div style={{ padding: 20, maxWidth: 600, margin: '0 auto' }}>
+          <div style={{ backgroundColor: '#f9f9f9', padding: 30, borderRadius: 8, textAlign: 'center' }}>
+            <h2>Confirm Payment Sent</h2>
+            <div style={{ backgroundColor: '#fff3cd', padding: 15, borderRadius: 6, margin: '20px 0', borderLeft: '4px solid #ffc107' }}>
+              <p style={{ margin: '0 0 10px 0', fontWeight: 'bold' }}>Please transfer ₦{summary.total.toFixed(2)} to:</p>
+              <p style={{ margin: 0, fontSize: 18, fontWeight: 'bold', color: '#333' }}>Opay: 9047393086</p>
+            </div>
+            <p style={{ marginBottom: 20, color: '#666' }}>Have you sent the funds to the account above?</p>
+            <div style={{ display: 'flex', gap: 10, justifyContent: 'center' }}>
+              <button className="button primary" onClick={onConfirmPaymentSent} disabled={processing}>
+                {processing ? 'Processing…' : 'Yes, I sent the funds'}
+              </button>
+              <button className="button ghost" onClick={() => setConfirmationPending(false)} disabled={processing}>
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      </>
+    );
+  }
+
   if (paid) {
     return (
       <>
         <Helmet>
-          <title>Payment Successful - Volubiks Jewelry</title>
+          <title>Thank You - Volubiks Jewelry</title>
           <meta name="robots" content="noindex, nofollow" />
         </Helmet>
-        <div style={{ padding: 20 }}>
-          <h2>Payment successful</h2>
-          <p>Thanks! Your payment of <strong>₦{summary.total.toFixed(2)}</strong> was processed.</p>
-          <Link to="/">Return to home</Link>
+        <div style={{ padding: 20, maxWidth: 600, margin: '0 auto' }}>
+          <div style={{ backgroundColor: '#f0f8f0', padding: 30, borderRadius: 8, textAlign: 'center' }}>
+            <h2 style={{ color: '#2d5016', marginTop: 0 }}>✓ Thank You!</h2>
+            <p style={{ fontSize: 16, marginBottom: 10 }}>Your order has been received.</p>
+            <p style={{ fontSize: 14, color: '#666', marginBottom: 20 }}>We will process your order once payment is confirmed.</p>
+            <div style={{ backgroundColor: '#fff', padding: 15, borderRadius: 6, margin: '20px 0', border: '1px solid #e0e0e0' }}>
+              <p style={{ margin: '0 0 8px 0', fontSize: 12, color: '#999' }}>Order Total</p>
+              <p style={{ margin: 0, fontSize: 20, fontWeight: 'bold', color: '#333' }}>₦{summary.total.toFixed(2)}</p>
+            </div>
+            <p style={{ fontSize: 12, color: '#999', marginBottom: 20 }}>A confirmation email has been sent to {shipping.email}</p>
+            <Link to="/" className="button primary" style={{ textDecoration: 'none', display: 'inline-block', padding: '10px 20px' }}>Return to Home</Link>
+          </div>
         </div>
       </>
     );
@@ -151,7 +177,7 @@ export default function Payment() {
     <>
       <Helmet>
         <title>Payment - Volubiks Jewelry</title>
-        <meta name="description" content="Complete your secure payment at Volubiks Jewelry. Enter shipping details and pay with Paystack or Moniepoint." />
+        <meta name="description" content="Complete your secure payment at Volubiks Jewelry. Enter your shipping details and make payment via Opay." />
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <div style={{ padding: 20 }}>
@@ -212,27 +238,12 @@ export default function Payment() {
           </form>
 
           <div style={{ marginTop: 18 }}>
-            <h4>Payment method</h4>
-            <p className="muted">This demo uses a simulated payment flow. To integrate real providers replace the handlers with server-side integration. Use the configuration panel below to paste Paystack webhook secret and Opay merchant (demo only).</p>
-
-            <div style={{ marginTop: 10 }}>
-              <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-                <button className="button" onClick={async () => {
-                  try {
-                    const res = await fetch('/api/create-checkout-session', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ summary }) });
-                    if (!res.ok) throw new Error('no-backend');
-                    const data = await res.json();
-                    if (data && data.url) window.location.href = data.url;
-                    else alert('Unexpected response from backend.');
-                  } catch (e) {
-                    alert('Stripe integration is not configured in this demo. See PAYMENT_INTEGRATION.md in the repo for setup steps.');
-                  }
-                }}>Pay with Stripe (test)</button>
-
-                <button className="button primary" onClick={payWithPaystack}>Pay with Paystack</button>
-                <button className="button primary" onClick={payWithOpay}>Pay with Opay</button>
-              </div>
+            <h4>Account Details</h4>
+            <div style={{ backgroundColor: '#f5f5f5', padding: 15, borderRadius: 8, marginTop: 10 }}>
+              <p style={{ margin: 0, fontSize: 14, color: '#666' }}>Official Payment Account:</p>
+              <p style={{ margin: '8px 0 0 0', fontSize: 18, fontWeight: 'bold', color: '#333' }}>Opay: 9047393086</p>
             </div>
+            <p style={{ marginTop: 10, fontSize: 13, color: '#999' }}>Please transfer the payment amount to the account above and complete your shipping details to finalize your order.</p>
           </div>
         </div>
 

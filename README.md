@@ -12,9 +12,9 @@ How to run locally (frontend only)
 What I'll add next (after you confirm push)
 - Full Shop and Product pages
 - Server (Express) with SQLite for products & orders
-- Paystack and Moniepoint integration (server endpoints and webhook)
+- Opay integration (manual payment method)
 - devcontainer and Codespace-ready configuration
-- Instructions for adding Paystack & Moniepoint keys (env)
+- Order management and customer tracking
 
 
 ## Importing products from a spreadsheet

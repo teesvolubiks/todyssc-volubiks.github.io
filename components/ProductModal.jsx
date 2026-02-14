@@ -8,8 +8,13 @@ export default function ProductModal({ product, open, onClose, onAdd }) {
   const [copyFeedback, setCopyFeedback] = useState('');
   const ANIM_MS = 220;
 
-  // Get images first before any function uses them
-  const images = (product.images && product.images.length) ? product.images.filter(img => !img.startsWith('data:image/svg+xml')) : (product.image ? [product.image] : []);
+  // Do not render if modal is closed or product is not provided
+  if (!open || !product) return null;
+
+  // Get images first before any function uses them; resolve base for assets
+  const base = import.meta.env.BASE_URL || '/';
+  const imagesRaw = (product.images && product.images.length) ? product.images.filter(img => !img.startsWith('data:image')) : (product.image ? [product.image] : []);
+  const images = imagesRaw.map(img => (img && img.startsWith('/') ? base + img.slice(1) : img));
 
   function closeWithAnim() {
     setClosing(true);

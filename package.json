@@ -11,7 +11,8 @@
     "generate:sitemap": "node scripts/generate-sitemap.js",
     "enhance:security": "node scripts/enhance-security.js",
     "generate:images": "node scripts/generate-images.js",
-    "import:excel": "node scripts/import-excel-sheets.js"
+    "import:excel": "node scripts/import-excel-sheets.js",
+    "git:track": "bash scripts/git-track-commit.sh"
   },
   "dependencies": {
     "html2canvas": "^1.4.1",

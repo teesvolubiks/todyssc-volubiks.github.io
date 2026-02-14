@@ -1,6 +1,6 @@
 {
   "headers": {
-    "Content-Security-Policy": "default-src 'self'; script-src 'self' 'unsafe-inline' https://js.paystack.co https://api.paystack.co; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://ipapi.co https://api.exchangerate-api.com https://js.paystack.co https://api.paystack.co;",
+    "Content-Security-Policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://ipapi.co https://api.exchangerate-api.com;",
     "X-Frame-Options": "DENY",
     "X-Content-Type-Options": "nosniff",
     "Referrer-Policy": "strict-origin-when-cross-origin",

@@ -22,12 +22,12 @@ export default function Shop() {
   // Placeholder image for missing images
   const placeholder = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjgiIGhlaWdodD0iNjgiIHZpZXdCb3g9IjAgMCA2OCA2OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTAiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5ObyBJbWFnZTwvdGV4dD48L3N2Zz4=';
 
-  // Helper to check if URL exists
+  // Helper to check if URL exists — resolve with Vite base for GitHub Pages/subpath deploys
   async function urlExists(url) {
     try {
-      // Use absolute URL by prepending window.location.origin
-      const absoluteUrl = url.startsWith('/') ? window.location.origin + url : url;
-      const res = await fetch(absoluteUrl, { method: 'HEAD', mode: 'cors' });
+      const base = import.meta.env.BASE_URL || '/';
+      const absoluteUrl = new URL(url, window.location.origin + base).toString();
+      const res = await fetch(absoluteUrl, { method: 'HEAD' });
       return res && res.ok;
     } catch (e) {
       console.warn('urlExists failed for:', url, e);
@@ -68,8 +68,9 @@ export default function Shop() {
       setLoading(true);
       setError(null);
       try {
-        console.log('Fetching products from /data/products.json...');
-        const response = await fetch('/data/products.json?t=' + Date.now());
+        console.log('Fetching products from data/products.json...');
+        const base = import.meta.env.BASE_URL || '/';
+        const response = await fetch(`${base}data/products.json?t=${Date.now()}`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
