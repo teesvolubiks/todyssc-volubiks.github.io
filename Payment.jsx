@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { AdminPayments } from './components/AdminPayments';
+// AdminPayments simplified; no config inputs required
 
 function loadCart() {
   try {
@@ -23,6 +23,7 @@ export default function Payment() {
   const [shipping, setShipping] = useState({ fullName: '', address: '', city: '', postal: '', country: '', email: '' });
   const [saveShipping, setSaveShipping] = useState(true);
   const [errors, setErrors] = useState({});
+  const [paymentNote, setPaymentNote] = useState('');
 
   useEffect(() => {
     // load saved shipping if any
@@ -40,7 +41,7 @@ export default function Payment() {
       }
       const items = Object.values(map);
       const subtotal = items.reduce((s, it) => s + it.product.price * it.qty, 0);
-      const vat = +(subtotal * 0.10).toFixed(2);
+      const vat = +(subtotal * 0.065).toFixed(2);
       const total = +(subtotal + vat).toFixed(2);
       setSummary({ subtotal, vat, total });
     }
@@ -78,6 +79,7 @@ export default function Payment() {
         paymentMethod: 'opay',
         paymentStatus: 'paid',
         transactionId: 'OPAY-' + Date.now(),
+        paymentNote: paymentNote || null,
         shipping,
         items: cart,
         subtotal: summary.subtotal,
@@ -98,28 +100,6 @@ export default function Payment() {
     }, 1000);
   };
 
-  // Demo helpers to read config saved via AdminPayments
-  const getConfig = () => {
-    try { return JSON.parse(localStorage.getItem('volubiks_payments_config') || 'null'); } catch { return null; }
-  };
-
-  const payWithOpay = async () => {
-    const cfg = getConfig();
-    if (!cfg || !cfg.opayMerchant) {
-      alert('Opay is not configured. Enter your Opay merchant ID/phone in the Payment Configuration section on this page.');
-      return;
-    }
-    try {
-      const res = await fetch('/api/opay/initialize', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ summary, merchant: cfg.opayMerchant }) });
-      if (!res.ok) throw new Error('no-backend');
-      const data = await res.json();
-      if (data && data.redirect) window.location.href = data.redirect;
-      else alert('Unexpected response from backend.');
-    } catch (e) {
-      alert('No server-side Opay integration detected. See PAYMENT_INTEGRATION.md for setup steps.');
-    }
-  };
-
   if (confirmationPending) {
     return (
       <>
@@ -134,10 +114,11 @@ export default function Payment() {
               <p style={{ margin: '0 0 10px 0', fontWeight: 'bold' }}>Please transfer ₦{summary.total.toFixed(2)} to:</p>
               <p style={{ margin: 0, fontSize: 18, fontWeight: 'bold', color: '#333' }}>Opay: 9047393086</p>
             </div>
-            <p style={{ marginBottom: 20, color: '#666' }}>Have you sent the funds to the account above?</p>
-            <div style={{ display: 'flex', gap: 10, justifyContent: 'center' }}>
-              <button className="button primary" onClick={onConfirmPaymentSent} disabled={processing}>
-                {processing ? 'Processing…' : 'Yes, I sent the funds'}
+            <p style={{ marginBottom: 8, color: '#666' }}>After sending funds, enter a short transaction reference or note and click confirm.</p>
+            <input className="input" value={paymentNote} onChange={(e) => setPaymentNote(e.target.value)} placeholder="Transaction reference / Note" />
+            <div style={{ display: 'flex', gap: 10, justifyContent: 'center', marginTop: 12 }}>
+              <button className="button primary" onClick={onConfirmPaymentSent} disabled={processing || !paymentNote.trim()}>
+                {processing ? 'Processing…' : 'Confirm Payment Sent'}
               </button>
               <button className="button ghost" onClick={() => setConfirmationPending(false)} disabled={processing}>
                 Cancel
@@ -254,10 +235,7 @@ export default function Payment() {
             <div className="summary-total"><span>Total</span><strong>₦{summary.total.toFixed(2)}</strong></div>
           </div>
 
-          <div style={{ marginTop: 18 }}>
-            <AdminPayments />
-          </div>
-
+          
         </div>
       </div>
     </div>

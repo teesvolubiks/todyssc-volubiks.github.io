@@ -66,7 +66,7 @@ export default function Checkout() {
   }, [products]);
 
   const subtotal = items.reduce((s, it) => s + it.product.price * it.qty, 0);
-  const VAT_RATE = 0.10; // 10%
+  const VAT_RATE = 0.065; // 6.5%
   const vat = +(subtotal * VAT_RATE).toFixed(2);
   const total = +(subtotal + vat).toFixed(2);
 
@@ -138,7 +138,7 @@ export default function Checkout() {
           <aside className="checkout-summary">
             <h3>Summary</h3>
             <div className="summary-row"><span>Subtotal</span><strong>₦{subtotal.toFixed(2)}</strong></div>
-            <div className="summary-row"><span>VAT (10%)</span><strong>₦{vat.toFixed(2)}</strong></div>
+            <div className="summary-row"><span>VAT (6.5%)</span><strong>₦{vat.toFixed(2)}</strong></div>
             <div className="summary-total"><span>Total</span><strong>₦{total.toFixed(2)}</strong></div> 
 
             <a href="/payment" className="button primary" style={{ display: 'block', marginTop: 12 }} onClick={(e) => { e.preventDefault(); window.location.href = '/payment'; }}>Proceed to Payment</a>
