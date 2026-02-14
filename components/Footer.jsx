@@ -31,9 +31,12 @@ export default function Footer() {
         <div className="footer-col footer-contact">
           <h4>Contact</h4>
           <address>
-            <div>5, Trans Amusement Park Shopping Complex</div>
+            <div>5, Trans Amusement Park Bodija Market opposite Methodist School 2</div>
             <div>Bodija, Ibadan</div>
-            <div>Phone: <a href="tel:+2349047393086">+234 904 739 3086</a></div>
+            <div>
+              Phone: <a href="tel:+2347033313947">070 3331 3947</a>,{' '}
+              <a href="tel:+2349047393086">090 4739 3086</a>
+            </div>
             <div>Email: <a href="mailto:support@volubiks.com">support@volubiks.com</a></div>
           </address>
         </div>
