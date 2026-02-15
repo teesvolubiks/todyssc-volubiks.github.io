@@ -4,7 +4,7 @@ Manual test plan — Checkout & Payment features
   - Add several products to the cart (Shop -> Add).
   - Go to /checkout.
   - Click + on an item and confirm quantity increases and line total updates.
-  - Click - and confirm quantity decreases; when it reaches 0 the item should be removed.
+  - Click - and confirm quantity decreases; when it reaches 0 the item should be removmed.
   - Confirm Subtotal, VAT (10%), and Total update accordingly.
   - Confirm header cart badge updates when quantities change.
 
