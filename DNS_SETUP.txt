@@ -150,3 +150,11 @@ Repository: Todyents/todyssc-volubiks.github.io
 Deployed Branch: gh-pages
 CNAME: royalvolubiks.com.ng
 Build Tool: Vite + React
+
+TXT RECORDS
+===========
+IMPORTANT: GitHub Pages does NOT require any TXT record.
+You do not need to add any TXT record for GitHub Pages to work.
+
+If you were asked to add a TXT record, you can safely ignore it.
+GitHub Pages verification is handled automatically through the CNAME file.
