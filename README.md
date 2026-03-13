@@ -63,9 +63,9 @@ Your spreadsheet must have these exact column headers (case-sensitive):
    npm run import:products ../products.xlsx -- --copy-images --overwrite-images
    ```
 
-### Best Practices for Perfect Display
+### Bestq Practices for Perfect Display
 
-- **IDs**: Use sequential numbers or meaningful codes (e.g., `RVP-001` for Royal Volubiks Pendant)
+. - **IDs**: Use sequential numbers or meaningful codes (e.g., `RVP-001` for Royal Volubiks Pendant)
 - **Names**: Keep them descriptive but concise (under 60 characters)
 - **Slugs**: Auto-generated from name if empty; ensure uniqueness
 - **Prices**: Use whole numbers (no decimals); convert to cents if needed (e.g., ₦24,899 = 24899)

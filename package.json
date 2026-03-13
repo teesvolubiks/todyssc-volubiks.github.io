@@ -5,8 +5,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "start": "node server.js",
     "preview": "vite preview",
     "deploy": "npm run build",
+    "setup:db": "node scripts/setup-database.js",
     "import:products": "node scripts/import-products.js",
     "import:interval": "node scripts/import-interval.js public/data/products.csv 120000",
     "generate:sitemap": "node scripts/generate-sitemap.js",
@@ -16,7 +18,11 @@
     "git:track": "bash scripts/git-track-commit.sh"
   },
   "dependencies": {
+    "compression": "^1.7.4",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
     "html2canvas": "^1.4.1",
+    "mysql2": "^3.6.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet-async": "^2.0.5",
