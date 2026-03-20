@@ -7,13 +7,16 @@
     "build": "vite build",
     "preview": "vite preview",
     "deploy": "npm run build && npx gh-pages -d dist -b gh-pages",
+    "server": "cd server && npm install && npm start",
+    "migrate": "cd scripts && node migrate-data.js",
     "import:products": "node scripts/import-products.js",
     "import:interval": "node scripts/import-interval.js public/data/products.csv 120000",
     "generate:sitemap": "node scripts/generate-sitemap.js",
     "enhance:security": "node scripts/enhance-security.js",
     "generate:images": "node scripts/generate-images.js",
     "import:excel": "node scripts/import-excel-sheets.js",
-    "git:track": "bash scripts/git-track-commit.sh"
+    "git:track": "bash scripts/git-track-commit.sh",
+    "start": "concurrently \"npm run server\" \"vite\" --kill-others --success first"
   },
   "dependencies": {
     "html2canvas": "^1.4.1",
@@ -24,6 +27,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.7.0",
+    "concurrently": "^8.2.2",
     "vite": "^5.1.0",
     "xlsx": "^0.18.5"
   }

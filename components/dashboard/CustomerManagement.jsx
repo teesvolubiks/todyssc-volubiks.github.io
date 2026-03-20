@@ -9,44 +9,14 @@ export default function CustomerManagement() {
     loadCustomers();
   }, []);
 
-  const loadCustomers = () => {
-    // Extract customers from orders
-    const orders = JSON.parse(localStorage.getItem('volubiks_orders') || '[]');
-    const customerMap = {};
-
-    orders.forEach(order => {
-      if (order.shipping?.email) {
-        const email = order.shipping.email;
-        if (!customerMap[email]) {
-          customerMap[email] = {
-            email,
-            name: order.shipping.fullName,
-            phone: order.shipping.phone || '',
-            address: order.shipping.address,
-            city: order.shipping.city,
-            country: order.shipping.country,
-            orders: [],
-            totalSpent: 0,
-            lastOrder: null,
-            firstOrder: null
-          };
-        }
-
-        customerMap[email].orders.push(order);
-        customerMap[email].totalSpent += order.total || 0;
-
-        const orderDate = new Date(order.date || order.createdAt);
-        if (!customerMap[email].lastOrder || orderDate > new Date(customerMap[email].lastOrder)) {
-          customerMap[email].lastOrder = orderDate.toISOString();
-        }
-        if (!customerMap[email].firstOrder || orderDate < new Date(customerMap[email].firstOrder)) {
-          customerMap[email].firstOrder = orderDate.toISOString();
-        }
-      }
-    });
-
-    const customerList = Object.values(customerMap);
-    setCustomers(customerList);
+  const loadCustomers = async () => {
+    try {
+      const response = await fetch('/api/customers');
+      const data = await response.json();
+      setCustomers(data);
+    } catch (error) {
+      console.error('Failed to load customers:', error);
+    }
   };
 
   const filteredCustomers = customers.filter(customer =>

@@ -1,28 +1,21 @@
-# TODO List - Social Media Poster Implementation
+# Shared Hosting Deployment TODO (www.royalvolubiks.com.ng)
 
-## Phase 1: Update ProductModal.jsx
-- [x] Replace "Share" button with social media icons
-- [x] Add WhatsApp, Facebook, Twitter, Instagram buttons
-- [x] Add direct WhatsApp Status sharing
+## Current Progress
+✅ Vite build configured, .cpanel.yml partial setup exists.
 
-## Phase 2: Create SocialMediaPoster Component
-- [x] Create components/SocialMediaPoster.jsx
-- [x] Add product selection functionality
-- [x] Add custom caption input
-- [x] Add image preview with product overlay
-- [x] Add platform-specific share buttons
-- [x] Add download poster functionality
+## Troubleshooting 500 Error
+- cPanel Error Logs: cPanel > Metrics > Errors (check .htaccess, Node)
+- Verify /dist exists after deploy
+- Test: curl -I https://www.royalvolubiks.com.ng
 
-## Phase 3: Update App.jsx
-- [x] Add /poster route
+## Steps
+- [x] ... previous
+- [ ] 4. git push, check cPanel deploy log
+- [ ] 5. Restart Node app, Apache if available
 
-## Phase 4: Update Header.jsx
-- [x] Add Social Media Poster link in navigation
+- [ ] 5. cPanel Git Version Control: Clone to /home2/royalvol/public_html
+- [ ] 6. cPanel Node.js: App root /public_html/server, startup server.js
+- [ ] 7. phpLiteAdmin for server/data/volubiks.db
+- [ ] 8. Test frontend www.royalvolubiks.com.ng, API /api/products
 
-## Phase 5: Update styles.css
-- [x] Add social media button styles
-- [x] Add poster generation styles
-
-## Phase 6: Documentation
-- [x] Create SOCIAL_POSTING.md with setup instructions
-
+**Target**: Full app live at www.royalvolubiks.com.ng after deploy.

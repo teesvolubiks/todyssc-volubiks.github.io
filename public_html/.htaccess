@@ -1,0 +1,12 @@
+# Production .htaccess for www.royalvolubiks.com.ng (React SPA + Node API proxy)
+# Security Headers
+RewriteEngine On
+
+# Basic SPA fallback ( /dist/index.html )
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /dist/index.html [L]
+
+# API Proxy (Node.js)
+RewriteRule ^api/(.+) $ http://127.0.0.1:3000/api/$1 [P,L,NC,QSA]

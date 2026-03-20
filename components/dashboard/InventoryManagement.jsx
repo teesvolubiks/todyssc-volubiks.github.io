@@ -12,7 +12,7 @@ export default function InventoryManagement() {
 
   const loadProducts = async () => {
     try {
-      const response = await fetch('/data/products.json?t=' + Date.now());
+      const response = await fetch('/api/products');
       const data = await response.json();
       setProducts(data);
     } catch (error) {
@@ -22,19 +22,12 @@ export default function InventoryManagement() {
 
   const updateProduct = async (productId, updates) => {
     try {
-      const updatedProducts = products.map(p =>
-        p.id === productId ? { ...p, ...updates } : p
-      );
-      setProducts(updatedProducts);
-
-      // In production, this would save to a database
-      // For now, we'll save to localStorage as a demo
-      localStorage.setItem('volubiks_inventory_updates', JSON.stringify({
-        productId,
-        updates,
-        timestamp: Date.now()
-      }));
-
+      await fetch(`/api/products/${productId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updates)
+      });
+      loadProducts(); // Reload from API
       alert('Product updated successfully!');
     } catch (error) {
       console.error('Failed to update product:', error);
