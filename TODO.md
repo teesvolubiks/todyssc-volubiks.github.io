@@ -1,21 +1,15 @@
-# Shared Hosting Deployment TODO (www.royalvolubiks.com.ng)
+# Knex MySQL Integration - Copletion Plan
 
-## Current Progress
-✅ Vite build configured, .cpanel.yml partial setup exists.
+Status: Following approved plan from TODO_KNEX_INTEGRATION.md. Steps 1-3 [x], completing 4-7.
 
-## Troubleshooting 500 Error
-- cPanel Error Logs: cPanel > Metrics > Errors (check .htaccess, Node)
-- Verify /dist exists after deploy
-- Test: curl -I https://www.royalvolubiks.com.ng
+## Steps:
+- [x] 1. Create server/knexfile.js with MySQL config (royalvol_tody DB) ✓
+- [x] 2. Refactor server/server.js to use require('./server-mysql') app instance (remove SQLite code) ✓
+- [x] 3. Install deps: cd server && npm install
+- [ ] 4. Test server: cd server && npm start && test APIs
+- [ ] 5. Create knex migration: cd server && npx knex migrate:make init_tables
+- [ ] 6. Implement migration (tables + seeds) and run knex migrate:latest
+- [ ] 7. Update TODO_KNEX_INTEGRATION.md & this file to [x], attempt_completion
 
-## Steps
-- [x] ... previous
-- [ ] 4. git push, check cPanel deploy log
-- [ ] 5. Restart Node app, Apache if available
+Progress will be updated after each step.
 
-- [ ] 5. cPanel Git Version Control: Clone to /home2/royalvol/public_html
-- [ ] 6. cPanel Node.js: App root /public_html/server, startup server.js
-- [ ] 7. phpLiteAdmin for server/data/volubiks.db
-- [ ] 8. Test frontend www.royalvolubiks.com.ng, API /api/products
-
-**Target**: Full app live at www.royalvolubiks.com.ng after deploy.
