@@ -28,7 +28,7 @@ export default function SocialMediaPoster() {
 
   useEffect(() => {
     if (selectedProduct) {
-      const defaultCaption = `✨ ${selectedProduct.name} ✨\n\n${selectedProduct.description || ''}\n\n💎 Price: ₦${selectedProduct.price.toFixed(2)}\n\n🛒 Shop now at Volubiks!\n\n#Volubiks #Jewelry #Fashion #Nigeria`;
+      const defaultCaption = `✨ ${selectedProduct.name} ✨\n\n${selectedProduct.description || ''}\n\n💎 Price: ₦${selectedProduct.price.toFixed(2)}\n\n🛒 Shop now at Royal Volubiks!\n\n#RoyalVolubiks #Jewelry #Fashion #Nigeria`;
       setCaption(defaultCaption);
     }
   }, [selectedProduct]);
@@ -263,7 +263,7 @@ export default function SocialMediaPoster() {
                   </div>
                   <div className="poster-content">
                     {includeBrand && (
-                      <div className="poster-brand">✨ Volubiks Jewelry ✨</div>
+                      <div className="poster-brand">www.royalvolubiks.com.ng</div>
                     )}
                     <h2 className="poster-title">{selectedProduct.name}</h2>
                     {includePrice && (
@@ -274,8 +274,8 @@ export default function SocialMediaPoster() {
                       {selectedProduct.description?.length > 100 ? '...' : ''}
                     </p>
                     <div className="poster-footer">
-                      <span className="poster-cta">🛒 Shop volubiks.com</span>
-                      <div className="poster-hashtags">#Volubiks #Jewelry</div>
+                      <span className="poster-cta">🛒 www.royalvolubiks.com.ng</span>
+                      <div className="poster-hashtags">#RoyalVolubiks #Jewelry</div>
                     </div>
                   </div>
                 </>
