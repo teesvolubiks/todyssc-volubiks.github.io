@@ -23,6 +23,7 @@ body{
   background:var(--bg);
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
 }
 
 .site-header{
@@ -52,6 +53,34 @@ body{
 .nav{display:flex;gap:14px;align-items:center}
 .nav-link{text-decoration:none;color:var(--muted);font-weight:600}
 .nav-link:hover{color:var(--accent)}
+
+.nav-toggle{
+  display:none;
+  border:0;
+  background:transparent;
+  cursor:pointer;
+  width:44px;
+  height:44px;
+  padding:0;
+  align-items:center;
+  justify-content:center;
+}
+.nav-toggle .bar{
+  display:block;
+  width:24px;
+  height:2px;
+  margin:4px 0;
+  background:var(--accent);
+  border-radius:2px;
+  transition:transform .2s ease, opacity .2s ease;
+}
+.nav-toggle.open .bar:nth-child(1){transform:translateY(6px) rotate(45deg);}
+.nav-toggle.open .bar:nth-child(2){opacity:0;}
+.nav-toggle.open .bar:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
+
+.nav.open{
+  display:flex;
+}
 
 main{padding:0 20px 20px;max-width:1100px;margin:0 auto}
 
@@ -164,6 +193,52 @@ main{padding:0 20px 20px;max-width:1100px;margin:0 auto}
 @keyframes pop{0%{transform:scale(.2);opacity:0}40%{transform:scale(1.1);opacity:1}100%{transform:scale(1.4);opacity:0}}
 
 @media (max-width:900px){
+  .site-header{
+    flex-wrap:wrap;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:12px;
+  }
+  .search-form{
+    order:2;
+    width:100%;
+    max-width:100%;
+  }
+  .search-input{
+    width:100%;
+  }
+  .nav-toggle{
+    display:flex;
+  }
+  .nav{
+    display:none;
+    width:100%;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+    margin-top:10px;
+    padding:12px 16px;
+    border:1px solid rgba(0,0,0,0.06);
+    border-radius:14px;
+    background:#fff;
+  }
+  .nav.open{
+    display:flex;
+  }
+  .nav-link,
+  .cart-btn{
+    width:100%;
+    text-align:left;
+  }
+  .cart-btn{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap:8px;
+  }
+  .site-header{
+    padding:12px 16px;
+  }
   .hero{grid-template-columns:1fr;padding:22px}
   .hero-image img{height:260px}
   .hero-content h1{font-size:34px}
