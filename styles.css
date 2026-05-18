@@ -37,6 +37,7 @@ body{
   top:0;
   z-index:20;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  position:relative;
 }
 
 .brand{display:flex;gap:12px;align-items:center;cursor:pointer}
@@ -82,7 +83,7 @@ body{
   display:flex;
 }
 
-main{padding:0 20px 20px;max-width:1100px;margin:0 auto}
+main{padding:0 20px 20px;max-width:none;margin:0 auto}
 
 /* Hero (full-bleed wrapper) */
 .hero{
@@ -116,7 +117,67 @@ main{padding:0 20px 20px;max-width:1100px;margin:0 auto}
 }
 
 @media (max-width:900px){
-  .hero-inner{grid-template-columns:1fr;padding:22px}
+  .site-header{
+    flex-wrap:wrap;
+    justify-content:space-between;
+    gap:12px;
+    padding:12px 16px;
+  }
+  .search-form{
+    order:2;
+    width:100%;
+    max-width:100%;
+  }
+  .search-input{
+    width:100%;
+  }
+  .nav-toggle{
+    display:flex;
+  }
+  .nav{
+    display:none;
+    position:absolute;
+    top:100%;
+    right:16px;
+    width:min(280px, calc(100vw - 32px));
+    flex-direction:column;
+    align-items:flex-start;
+    gap:12px;
+    margin-top:12px;
+    padding:16px;
+    border-radius:12px;
+    background:#ffffff;
+    border:1px solid rgba(0,0,0,0.08);
+    box-shadow:0 18px 40px rgba(0,0,0,0.12);
+  }
+  .nav.open{
+    display:flex;
+  }
+  .nav-link,
+  .cart-btn{
+    width:100%;
+    text-align:left;
+  }
+  .cart-btn{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap:8px;
+  }
+  .hero-inner{
+    max-width:none;
+    border-radius:0;
+  }
+  .features,
+  .category-card,
+  .hero-image,
+  .site-footer{
+    border-radius:0;
+  }
+  .hero{grid-template-columns:1fr;padding:22px}
+  .hero-image img{height:260px}
+  .hero-content h1{font-size:34px}
+  .hero-image{order:2}
 }
 .hero-content{position:relative;z-index:2;padding:8px 10px}
 /* If using SVG title we don't want the text-gradient rules to interfere — clear them */
