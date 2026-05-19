@@ -9,19 +9,27 @@ export default function OrderManagement() {
     loadOrders();
   }, []);
 
-  const loadOrders = () => {
-    // In production, this would fetch from a database
-    // For now, we'll simulate with localStorage
-    const storedOrders = JSON.parse(localStorage.getItem('volubiks_orders') || '[]');
-    setOrders(storedOrders);
+  const loadOrders = async () => {
+    try {
+      const response = await fetch('/api/orders');
+      const data = await response.json();
+      setOrders(data);
+    } catch (err) {
+      console.error('Failed to load orders:', err);
+    }
   };
 
-  const updateOrderStatus = (orderId, newStatus) => {
-    const updatedOrders = orders.map(order =>
-      order.id === orderId ? { ...order, status: newStatus, updatedAt: new Date().toISOString() } : order
-    );
-    setOrders(updatedOrders);
-    localStorage.setItem('volubiks_orders', JSON.stringify(updatedOrders));
+  const updateOrderStatus = async (orderId, newStatus) => {
+    try {
+      await fetch(`/api/orders/${orderId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status: newStatus })
+      });
+      loadOrders(); // Reload
+    } catch (err) {
+      console.error('Failed to update order:', err);
+    }
   };
 
   const filteredOrders = orders.filter(order => {

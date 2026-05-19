@@ -1,0 +1,39 @@
+deployment:
+  tasks:
+    - checkout
+  install:
+    composer: false
+    npm: true
+    gulp: false
+    bower: false
+  allowed_environments:
+    - production
+  production_branch: main
+  # Custom tasks for this app
+  before:
+    - 'cd server && npm ci --production'
+  after:
+# Restart Node.js app via cPanel (user must setup Node.js app pointing to /server/server.js)
+    - 'npm run build'
+    - 'echo "Deployment complete. Restart Node.js app in cPanel UI."'
+
+# Node.js app configuration (user configures in cPanel Node.js Selector)
+# Application root: /home/royalvol/todyssc-volubiks.github.io/server
+# Application startup file: server.js
+# Application URL: yourdomain.com (or subdomain for API)
+# Passenger log: /home/royalvol/logs/node.log
+
+ignored_folders:
+  - node_modules
+  - dist
+  - .git
+  - data/imports
+  - scripts/*.log
+
+# Repo details (for cPanel Git Version Control)
+# Repository: ssh://royalvol@royalvolubiks.com.ng/home2/royalvol/repositories/todyssc-volubikshub.io.git
+# Path: /home/royalvol/todyssc-volubiks.github.io (adjust as per cPanel)
+
+# Build step: vite build (npm ci + npm run build handled by npm:true + package.json scripts)
+# Frontend served from /dist as static files by Apache/Nginx
+# Backend: Node/Express API on /api (configure proxy if needed in .htaccess)

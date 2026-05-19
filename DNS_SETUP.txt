@@ -1,3 +1,4 @@
+DNS CONFIGURATION FOR GITHUB PAGESDNS CONFIGURATION FOR GITHUB PAGES
 
 Build Tool: Vite + ReactCNAME: royalvolubiks.com.ngDeployed Branch: gh-pagesRepository: Todyents/todyssc-volubiks.github.io=================GITHUB PAGES INFOYou can check DNS status at: https://www.whatsmydns.net/- Up to 48 hours in rare cases- 5 minutes to a few hours for most providersAfter adding these records, DNS changes can take:===============DNS PROPAGATIONValue: todyssc-volubiks.github.ioType: CNAMEHost: wwwIf you want www.royalvolubiks.com.ng to also work, add:=========================SUBDOMAIN (www) - OPTIONALValue: 2606:50c0:8003::153Type: AAAAHost: @ (or leave blank for apex domain)Value: 2606:50c0:8002::153Type: AAAAHost: @ (or leave blank for apex domain)Value: 2606:50c0:8001::153Type: AAAAHost: @ (or leave blank for apex domain)Value: 2606:50c0:8000::153Type: AAAAHost: @ (or leave blank for apex domain)For modern IPv6 support, also add these 4 AAAA records:------------------------------AAAA Records (Optional - IPv6)Value: 185.199.111.153Type: AHost: @ (or leave blank for apex domain)Value: 185.199.110.153Type: AHost: @ (or leave blank for apex domain)Value: 185.199.109.153Type: AHost: @ (or leave blank for apex domain)Value: 185.199.108.153Type: AHost: @ (or leave blank for apex domain)Add these 4 A records to your DNS provider:---------------------------A Records (Required - IPv4)====================REQUIRED DNS RECORDSGitHub Pages Repository: https://github.com/Todyents/todyssc-volubiks.github.ioDomain: royalvolubiks.com.ng======================================================================
 
@@ -14,7 +15,7 @@ Add these 4 A records to your DNS provider:
 Host: @ (or leave blank for apex domain)
 Type: A
 Value: 185.199.108.153
-
+q
 Host: @ (or leave blank for apex domain)
 Type: A
 Value: 185.199.109.153
@@ -74,11 +75,3 @@ Repository: Todyents/todyssc-volubiks.github.io
 Deployed Branch: gh-pages
 CNAME: royalvolubiks.com.ng
 Build Tool: Vite + React
-
-TXT RECORDS
-===========
-IMPORTANT: GitHub Pages does NOT require any TXT record.
-You do not need to add any TXT record for GitHub Pages to work.
-
-If you were asked to add a TXT record, you can safely ignore it.
-GitHub Pages verification is handled automatically through the CNAME file.

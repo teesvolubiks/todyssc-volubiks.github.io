@@ -16,12 +16,12 @@ export default function DashboardOverview() {
 
   const loadDashboardData = async () => {
     try {
-      // Load products
-      const productsRes = await fetch('/data/products.json?t=' + Date.now());
+      const [productsRes, ordersRes] = await Promise.all([
+        fetch('/api/products'),
+        fetch('/api/orders')
+      ]);
       const products = await productsRes.json();
-
-      // Load orders from localStorage (in production, this would be from a database)
-      const orders = JSON.parse(localStorage.getItem('volubiks_orders') || '[]');
+      const orders = await ordersRes.json();
 
       // Calculate stats
       const totalProducts = products.length;
@@ -35,8 +35,8 @@ export default function DashboardOverview() {
       // Top products by sales
       const productSales = {};
       orders.forEach(order => {
-        order.items?.forEach(item => {
-          productSales[item.id] = (productSales[item.id] || 0) + item.quantity;
+        JSON.parse(order.items || '[]').forEach(item => {
+          productSales[item.id || item.productId] = (productSales[item.id || item.productId] || 0) + item.quantity;
         });
       });
       const topProducts = Object.entries(productSales)
