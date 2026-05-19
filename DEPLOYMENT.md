@@ -1,42 +1,26 @@
-# Deployment Guide for go54.com
+# Deployment Guide for Render with MongoDB
 
 ## Prerequisites
 
 Before deploying, you need:
-1. A go54.com hosting account with PHP & MySQL support
-2. Node.js installed on your local machine
-3. Your MySQL database credentials from go54.com control panel
+1. A Render account
+2. A MongoDB database URI (Atlas, Render Marketplace, or another MongoDB provider)
+3. Node.js dependencies installed locally for build verification
 
-## Step 1: Get MySQL Credentials from go54.com
-
-1. Log in to your go54.com cPanel
-2. Look for "MySQL Databases" or "Databases" section
-3. Create a new database (e.g., `volubiks`)
-4. Create a new user with a strong password
-5. Add the user to the database with all privileges
-6. Note down these credentials:
-   - Database name
-   - Database username
-   - Database password
-   - Host (usually `localhost`)
-
-## Step 2: Configure Environment Variables
+## Step 1: Configure Environment Variables
 
 1. Copy the example environment file:
    ```bash
    cp .env.example .env
    ```
 
-2. Edit `.env` and add your MySQL credentials:
-   ```
-   DB_HOST=localhost
-   DB_USER=your_db_username
-   DB_PASSWORD=your_db_password
-   DB_NAME=volubiks
+2. Edit `.env` and add your MongoDB connection string:
+   ```bash
+   MONGO_URI=mongodb+srv://username:password@cluster0.example.mongodb.net/volubiks?retryWrites=true&w=majority
    PORT=3000
    ```
 
-## Step 3: Build the Application
+## Step 2: Build the Application Locally
 
 On your local machine, run:
 ```bash
@@ -46,84 +30,52 @@ npm run build
 
 This creates a `dist` folder with optimized production files.
 
-## Step 4: Set Up Database
+## Step 3: Run Database Setup (Optional)
 
-Run the database setup script to create tables and import products:
+If you want to import products into MongoDB from the local JSON dataset, run:
 ```bash
-node scripts/setup-database.js
+npm run setup:db
 ```
 
-## Step 5: Upload to go54.com
+This connects to the MongoDB instance specified by `MONGO_URI` and upserts products from `public/data/products.json`.
 
-### Option A: Using File Manager (Easiest)
+## Step 4: Deploy to Render
 
-1. Log in to cPanel → File Manager
-2. Navigate to the root folder for your domain (usually `public_html`)
-3. Upload all contents from the `dist` folder
-4. Upload these additional files:
-   - `server.js`
-   - `.env` (rename to `.env` if needed)
-   - `package.json`
-5. Create a folder named `data` in `public_html/data` and upload product images
+1. Create a new Web Service in Render and connect it to this repository.
+2. Set the build command:
+   ```bash
+   npm run build
+   ```
+3. Set the start command:
+   ```bash
+   npm start
+   ```
+4. Add environment variables in Render:
+   - `MONGO_URI` — your MongoDB connection string
+   - `PORT` — optional (Render provides one automatically)
 
-### Option B: Using FTP/SFTP
+## Step 5: Verify MongoDB Connection
 
-1. Connect to your hosting using FTP client (FileZilla)
-2. Upload all files from `dist` to `public_html`
-3. Upload `server.js`, `.env`, and `package.json` to `public_html`
-4. Create `public_html/data/images` folder and upload images
+Render will start the container and the app will try to connect to MongoDB on launch. If connection succeeds, the app can read/write:
+- `products`
+- `orders`
+- `customers`
 
-## Step 6: Install Node.js Dependencies on Server
-
-In go54.com cPanel:
-
-1. Go to "Setup Node.js App" or "Node.js Selector"
-2. Create a new application:
-   - Application Mode: Production
-   - Application Root: / (or your domain folder)
-   - Application URL: your domain
-   - Application Start file: server.js
-3. Click Create
-4. After creation, click "Run NPM Install"
-
-Or via Terminal (if available):
-```bash
-cd /path/to/your/domain
-npm install
-```
-
-## Step 7: Start the Server
-
-1. In cPanel Node.js app settings:
-   - Make sure the app is started
-   - Set environment variables in the UI
-
-2. Your app should now be accessible at `https://yourdomain.com`
+If the connection fails, the app still serves static products from `dist/data/products.json`.
 
 ## Troubleshooting
 
-### Port Issues
-If port 3000 doesn't work, try port 8080 or the port specified in go54.com Node.js settings.
+### MongoDB connection problems
+- Confirm `MONGO_URI` is correct
+- Verify your MongoDB provider allows connections from Render's IP range or uses an Atlas whitelist
+- Ensure the database user has write permission for the target database
 
-### Database Connection Error
-- Double-check your `.env` credentials
-- Make sure the database user has privileges
-- Ensure database exists
+### Build or start failures
+- Confirm `npm install` ran successfully in Render
+- Check that `render.yaml` or service settings point to the correct `server.js` start file
 
-### Static Files Not Loading
-- Make sure all files from `dist` are uploaded
-- Check that `data` folder with images exists in correct location
-
-### Common Error Messages
-
-1. **"Cannot find module 'mysql2'"**
-   - Run `npm install` on the server
-
-2. **"Access denied for user"**
-   - Check DB_USER and DB_PASSWORD in .env
-
-3. **"Unknown database"**
-   - Create the database in cPanel first
+### Static data fallback
+If the server cannot connect to MongoDB, it will still run and serve static product data from `dist/data/products.json`, but order writes will not persist.
 
 ## Quick Commands Reference
 
@@ -134,10 +86,12 @@ npm install
 # Build for production
 npm run build
 
-# Setup database
-node scripts/setup-database.js
+# Setup MongoDB products data
+npm run setup:db
 
-# Start server
+# Start server locally
+npm start
+```
 npm start
 
 # Or with custom port

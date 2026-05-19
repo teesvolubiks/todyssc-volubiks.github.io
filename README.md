@@ -1,180 +1,116 @@
-```markdown
-# Volubiks Jewelry — Landing (initial commit)
+# Volubiks — E-commerce Frontend + Express API
 
-This commit contains the client-side landing page for "Royal Volubiks Jewelries".
+This repository contains a React + Vite storefront and an Express backend that together form a lightweight e-commerce platform for Volubiks.
 
-How to run locally (frontend only)
-1. cd client
-2. npm install
-3. npm run dev
-4. Open http://localhost:5173
+Key points
+- Frontend: React (Vite) single-page app in the repository root
+- Backend: `server.js` (Express) exposes a simple JSON API under `/api/*`
+- Database: MongoDB (via `mongoose`) with automatic collection use; static JSON fallback when MongoDB is unavailable
+- Hosting: Suitable to deploy on Render (instructions below)
 
-What I'll add next (after you confirm push)
-- Full Shop and Product pages
-- Server (Express) with SQLite for products & orders
-- Opay integration (manual payment method)
-- devcontainer and Codespace-ready configuration
-- Order management and customer tracking
+Table of contents
+- Features
+- How it works (architecture)
+- Local development
+- Database handling
+- Deployment to Render
+- Useful scripts
+- Troubleshooting
 
+Features
+- Product catalog API (`/api/products`, `/api/products/:id`)
+- Orders API (`/api/orders`, `/api/orders/:orderId`), create/update orders
+- Seller dashboard and management components included in `components/` and `components/dashboard/`
+- Import scripts for spreadsheet-based product import and image handling (see `scripts/`)
 
-## Importing products from a spreadsheet
+How it works (architecture)
+- Frontend: built with Vite and React. During production the frontend is built into `dist/` and served by the Express server.
+- Backend: `server.js` is a small Express app that
+  - connects to MongoDB using `mongoose` (reads connection info from environment variables),
+  - uses `products`, `orders`, and `customers` collections,
+  - exposes JSON API routes under `/api/*`, and
+  - serves static frontend assets from `dist/`.
+- Fallback behavior: if the MongoDB connection fails the server logs "MongoDB not available, using static data mode" and serves product data from `dist/data/products.json`. Order writes will still return success but are not persisted to MongoDB.
 
-You can manage product data using a CSV or Excel spreadsheet and import it into `public/data/products.json`.
+Local development
+1. Copy environment template and set values:
 
-### Excel/CSV Column Structure
+   cp .env.example .env
 
-Your spreadsheet must have these exact column headers (case-sensitive):
+   Required env vars (common):
+   - `PORT` — optional (default 3000)
+   - `MONGO_URI` — full MongoDB connection string for your cluster or Atlas database
 
-| Column | Required | Type | Description | Example |
-|--------|----------|------|-------------|---------|
-| `id` | Yes | Number/Text | Unique product identifier | `1`, `PROD-001` |
-| `name` | Yes | Text | Product display name | `Royal Volubiks Diamond Pendant` |
-| `slug` | No | Text | URL-friendly identifier (auto-generated if empty) | `royal-diamond-pendant` |
-| `price` | Yes | Number | Product price in cents/units | `24899` (for ₦24,899) |
-| `currency` | No | Text | Currency code (defaults to NGN) | `NGN`, `USD`, `EUR` |
-| `image` | No | Text | Primary image path or URL | `/images/pendant.jpg` or `https://example.com/image.jpg` |
-| `description` | No | Text | Product description | `A brilliant diamond pendant with classic setting.` |
-| `category` | No | Text | Product category | `necklace`, `rings`, `earrings`, `bracelets` |
-| `featured` | No | Text | Show in featured section (`true`/`false`) | `true` |
-| `inventory` | No | Number | Stock quantity (0 = out of stock) | `12` |
-| `tags` | No | Text | Semicolon or comma-separated tags | `diamond;pendant;luxury` |
+2. Install dependencies:
 
-### Steps to Add Products Perfectly
+   npm install
 
-1. **Prepare your Excel file** (`products.xlsx` in the root directory):
-   - Use the exact column headers shown above
-   - Fill in at least `id`, `name`, and `price` for each product
-   - Use consistent formatting (e.g., all prices in the same currency unit)
+3a. Frontend-only development (fast iteration):
 
-2. **Add product images**:
-   - Place images in the same directory as your Excel file, or in `public/images/`
-   - Reference them in the `image` column as relative paths (e.g., `images/pendant.jpg`) or URLs
-   - For multiple images, separate with semicolons: `images/pendant1.jpg;images/pendant2.jpg`
+   npm run dev
 
-3. **Import the data**:
-   ```bash
-   # Basic import (data only)
-   npm run import:products ../products.xlsx
+   This starts Vite on its default port (usually 5173). Use the Vite dev server for hot-reload while building UI.
 
-   # Import with image copying
-   npm run import:products ../products.xlsx -- --copy-images
+3b. Full-stack local (build frontend and start the server):
 
-   # Import and overwrite existing images
-   npm run import:products ../products.xlsx -- --copy-images --overwrite-images
-   ```
+   npm run build
+   npm start
 
-### Bestq Practices for Perfect Display
+   `npm start` runs `node server.js`, which will serve the built `dist/` files and the API.
 
-. - **IDs**: Use sequential numbers or meaningful codes (e.g., `RVP-001` for Royal Volubiks Pendant)
-- **Names**: Keep them descriptive but concise (under 60 characters)
-- **Slugs**: Auto-generated from name if empty; ensure uniqueness
-- **Prices**: Use whole numbers (no decimals); convert to cents if needed (e.g., ₦24,899 = 24899)
-- **Images**: Use high-quality JPG/PNG files (under 2MB each); square aspect ratio works best
-- **Descriptions**: Write compelling descriptions (100-300 characters) highlighting features and benefits
-- **Categories**: Use consistent naming (necklace, rings, earrings, bracelets)
-- **Featured**: Set to `true` for products you want in the random featured carousel
-- **Inventory**: Set to 0 for out-of-stock items; they won't show "Add to Cart" button
-- **Tags**: Use relevant keywords separated by semicolons for better searchability
+Database handling
+- The backend uses MongoDB via `mongoose`.
+- Environment variables used by `server.js`:
+  - `MONGO_URI` — full MongoDB connection string for your database or Atlas cluster
+- On successful connection the server uses `products`, `orders`, and `customers` collections.
+- There is also a convenience script referenced in `package.json`:
 
-### Image Handling
+  npm run setup:db
 
-The import script automatically:
-- Copies images to `public/images/` for web serving
-- Creates backup copies in `data/imports/<timestamp>/images/`
-- Updates image paths in the JSON to web-accessible URLs
-- Handles multiple images per product
-- Avoids overwriting existing files (adds suffixes like `image-1.jpg`)
+  This script (`scripts/setup-database.js`) can import product data into MongoDB before first run.
 
-### Troubleshooting
+- Fallback mode: if the server cannot reach MongoDB it will serve product data from `dist/data/products.json` (if present) and continue to respond to requests. This makes the app resilient for demo or static-hosted deployments.
 
-- **Missing columns**: The import will fail if required columns are missing
-- **Invalid data types**: Numbers for price/inventory, boolean strings for featured
-- **Image not found**: Check paths are correct and files exist
-- **Display issues**: Clear browser cache after import, as JSON is cached for 10 seconds
+Deployment to Render
+1. Create a new Web Service in Render connected to this repository.
+2. Set the build and start commands in Render:
 
-### Example Excel Row
+   - Build command: `npm run build`
+   - Start command: `npm start`
 
-```
-id: 1
-name: Royal Volubiks Diamond Pendant
-slug: royal-diamond-pendant
-price: 24899
-currency: NGN
-image: /images/diamond-pendant.jpg
-description: A brilliant diamond pendant with classic setting.
-category: necklace
-featured: true
-inventory: 12
-tags: diamond;pendant;luxury
-```
+   Render will run the build command during deploy, producing the `dist/` folder, and then run `npm start` to launch `server.js`.
 
-## Seller Dashboard
+3. Configure environment variables in the Render dashboard (Environment > Environment Variables):
+   - `MONGO_URI` — your MongoDB connection string
+   - `PORT` (optional — Render sets a port automatically; the app honors `process.env.PORT`)
 
-The application includes a comprehensive seller dashboard for managing your business operations.
+4. Create or provision a MongoDB database. Use Atlas, Render Marketplace, or any MongoDB provider and set `MONGO_URI` to the connection string.
 
-### Accessing the Dashboard
+5. Database initialization: because `server.js` connects automatically on startup, collections will be available when the app runs. You can also run `npm run setup:db` to import products from `public/data/products.json` before the first deploy.
 
-1. Navigate to `/dashboard` in your browser
-2. Login with the admin password (default: `admin123`)
-3. Access all seller management features
+Notes on Render specifics
+- Ensure your service is allowed to reach the managed database (if using private networking, attach the DB to the service or use the provided connection string).
+- Use Render's environment variable UI to keep credentials secret.
+- If you want the frontend deployed as a static site separately, you can create two Render services: one static site for the built `dist/`, and one web service for the API. The monorepo is already configured to build and serve both from `server.js`.
 
-### Dashboard Features
+Useful scripts (from `package.json`)
+- `npm run dev` — start Vite for frontend dev
+- `npm run build` — build the frontend into `dist/`
+- `npm start` — run `node server.js` (starts Express API and serves `dist/`)
+- `npm run setup:db` — helper to prepare the database
+- `npm run import:products` — import products via scripts/import-products.js
 
-#### Overview
-- **Key Metrics**: Total products, orders, revenue, and low stock alerts
-- **Recent Orders**: Latest customer purchases with quick access
-- **Top Products**: Best-selling items and their performance
+Troubleshooting
+- "MongoDB not available, using static data mode": MongoDB credentials are wrong or MongoDB is unreachable — verify `MONGO_URI` and network access. The app will still serve static products from `dist/data/products.json`.
+- Cannot see updated products after import: ensure `public/data/products.json` or `dist/data/products.json` is updated and restart the server or rebuild the frontend.
+- Production 500s on orders: check MongoDB connectivity and that `orders` collection can be written. The server logs will show errors.
 
-#### Inventory Management
-- **Product Catalog**: View all products with stock levels
-- **Stock Alerts**: Identify low stock items (≤5 units)
-- **Product Editing**: Update prices, descriptions, categories, and inventory
-- **Search & Filter**: Find products quickly by name, ID, or stock status
+Where to look in this repo
+- Server: [server.js](server.js)
+- Frontend source: root-level React files and `components/`
+- Import and helper scripts: `scripts/` (e.g., `import-products.js`, `setup-database.js`)
 
-#### Order Management
-- **Order Tracking**: View all customer orders with full details
-- **Order Status**: Update order status (pending, processing, shipped, completed, cancelled)
-- **Customer Information**: Access buyer details and shipping information
-- **Payment Details**: Track payment methods and transaction IDs
+Want me to also create a Render blueprint or a sample `render.yaml` for one-click deploy? Reply and I will add it.
 
-#### Customer Management
-- **Customer Database**: View all registered customers
-- **Purchase History**: See complete order history for each customer
-- **Customer Metrics**: Total spent, order count, and average order value
-- **Contact Information**: Access customer details for support
-
-#### Sales Analytics
-- **Revenue Tracking**: Monthly revenue charts and trends
-- **Sales Performance**: Compare current vs previous periods
-- **Top Products**: Identify best-selling items
-- **Category Breakdown**: Sales distribution by product category
-
-### Security Features
-
-- **Password Protection**: Secure admin access with configurable password
-- **Session Management**: Automatic logout on browser close
-- **Data Privacy**: Customer information securely stored locally
-
-### Data Storage
-
-Order and customer data is stored locally in the browser for demo purposes. In production:
-- Implement server-side database storage
-- Add user authentication and authorization
-- Enable data export/import capabilities
-- Set up automated backups
-
-### Sample Data
-
-To populate the dashboard with sample data for testing:
-
-```javascript
-// Run this in browser console or create a script
-const sampleOrders = [/* sample data from scripts/sample-orders.json */];
-localStorage.setItem('volubiks_orders', JSON.stringify(sampleOrders));
-```
-
-The dashboard provides complete visibility into your business operations, enabling you to track sales, manage inventory, and understand customer behavior effectively.
-
-```
-
-```
+---
+Generated: improved README with DB and Render hosting guidance.

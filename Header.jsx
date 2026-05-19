@@ -14,6 +14,7 @@ export default function Header() {
   const navigate = useNavigate();
   const [count, setCount] = useState(getCartCount());
   const [q, setQ] = useState('');
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   useEffect(() => {
     const onStorage = () => setCount(getCartCount());
@@ -74,23 +75,39 @@ export default function Header() {
             type="button"
             className="search-clear"
             aria-label="Clear search"
-            onClick={() => { setQ(''); navigate('/shop'); }}
+            onClick={() => { setQ(''); navigate('/shop'); setMobileNavOpen(false); }}
           >
             ✖
           </button>
         )}
       </form>
 
-      <nav className="nav">
+      <button
+        className={`nav-toggle ${mobileNavOpen ? 'open' : ''}`}
+        onClick={() => setMobileNavOpen((current) => !current)}
+        aria-label={mobileNavOpen ? 'Close menu' : 'Open menu'}
+        aria-expanded={mobileNavOpen}
+      >
+        <span className="bar" />
+        <span className="bar" />
+        <span className="bar" />
+      </button>
+
+      <nav className={`nav ${mobileNavOpen ? 'open' : ''}`} aria-label="Primary navigation">
         <a href="/shop" className="nav-link" onClick={(e) => {
           e.preventDefault();
+          setMobileNavOpen(false);
           window.location.href = '/shop';
         }}>Shop</a>
         <a href="/checkout" className="nav-link" onClick={(e) => {
           e.preventDefault();
+          setMobileNavOpen(false);
           window.location.href = '/checkout';
         }}>Checkout</a>
-        <button className="cart-btn" onClick={() => window.location.href = '/checkout'} aria-label="Open cart">
+        <button className="cart-btn" onClick={() => {
+          setMobileNavOpen(false);
+          window.location.href = '/checkout';
+        }} aria-label="Open cart">
           🛒
           {count > 0 && <span className="cart-badge">{count}</span>}
         </button>
